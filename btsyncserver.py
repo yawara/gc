@@ -23,11 +23,11 @@ class BTSyncHandler(BaseRequestHandler):
         self.request.send( str(r) )
 
 class STCPServer(TCPServer):
-    def __init__(self, server_address, RequestHandlerClass, bind_and_activate=True):
+    def __init__(self, server_address, RequestHandlerClass, certfile, bind_and_activate=True):
         # See SocketServer.TCPServer.__init__
         # (added ssl-support):
         SocketServer.BaseServer.__init__(self, server_address,RequestHandlerClass)
-        self.socket = ssl.wrap_socket(socket.socket(self.address_family,self.socket_type),server_side=True,certfile="cert.pem")
+        self.socket = ssl.wrap_socket(socket.socket(self.address_family,self.socket_type),server_side=True,certfile=certfile)
 
         if bind_and_activate:
             self.server_bind()
@@ -35,7 +35,8 @@ class STCPServer(TCPServer):
 
 if __name__ == '__main__':
     listen = ('localhost',10023)
-    server = STCPServer(listen, BTSyncHandler)
+    certfile = 'cert.pem'
+    server = STCPServer(listen, BTSyncHandler, certfile)
     try:
         print 'server start'
         server.serve_forever()
