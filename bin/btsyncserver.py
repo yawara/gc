@@ -1,6 +1,9 @@
 #!/usr/bin/env python
-import ssl,socket,sys
-from SocketServer import TCPServer, BaseRequestHandler
+import ssl
+import socket
+import sys
+from SocketServer import TCPServer, BaseRequestHandler, BaseServer
+
 from btsync import BTSync
 
 class BTSyncHandler(BaseRequestHandler):
@@ -26,7 +29,7 @@ class STCPServer(TCPServer):
     def __init__(self, server_address, RequestHandlerClass, certfile, bind_and_activate=True):
         # See SocketServer.TCPServer.__init__
         # (added ssl-support):
-        SocketServer.BaseServer.__init__(self, server_address,RequestHandlerClass)
+        BaseServer.__init__(self, server_address,RequestHandlerClass)
         self.socket = ssl.wrap_socket(socket.socket(self.address_family,self.socket_type),server_side=True,certfile=certfile)
 
         if bind_and_activate:
