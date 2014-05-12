@@ -8,6 +8,14 @@ This is a simple python wrapper around the BTSync API.
 ## How to use
 Edit the __config.json__ for your enviroment.
 
+Set some enviroment variables.
+```
+PREFIX=$(cd $(dirname README.md); pwd)
+export PYTHONPATH=$PREFIX/lib
+export PATH=$PREFIX/bin:$PATH
+```
+
+Use and enjoy as follows!
 ```
 from btsync import BTSync
 
