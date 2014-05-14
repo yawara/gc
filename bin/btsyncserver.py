@@ -17,13 +17,19 @@ class BTSyncHandler(BaseRequestHandler):
 
     def handle(self):
         # self.request is the TCP socket connected to the client
-        self.data = self.request.recv(1024).strip()
-        print "%s wrote:" % self.client_address[0]
-        print self.data
-        # just send back the same data, but upper-cased
-        b = BTSync()
-        r = b.register_secret( self.data )
-        self.request.send( str(r) )
+        char = self.request.recv(1024)
+        if len(char) == 1:
+            len_secret = ord( char )
+            self.request.send('a')
+            secret = ''
+            while len(secret) < len_secret:
+              chunk = self.request.recv( len_secret - len(secret) )
+              secret = secret + chunk
+            b = BTSync()
+            r = b.register_secret( secret )
+            self.request.sendall( str(r) )
+        self.request.shutdown(2)
+        self.request.close()
 
 class STCPServer(TCPServer):
     def __init__(self, server_address, RequestHandlerClass, certfile, bind_and_activate=True):
@@ -39,7 +45,7 @@ class STCPServer(TCPServer):
 if __name__ == '__main__':
     listen = ('localhost',10023)
     certfile = 'cert.pem'
-    server = STCPServer(listen, BTSyncHandler, certfile)
+    server = TCPServer(listen, BTSyncHandler, certfile)
     try:
         print 'server start'
         server.serve_forever()
