@@ -36,7 +36,7 @@ class BtSyncApi(object):
 	The docstrings of this class' methods were copied from the above site.
 	"""
 
-	def __init__(self,host='localhost',port='14888',username=None,password=None):
+	def __init__(self,host='localhost',port='8888',username=None,password=None):
 		"""
 		Parameters
 		----------
@@ -237,7 +237,15 @@ class BtSyncApi(object):
 		return self._request(params,throw_exceptions)
 
 	def get_encryption(self,secret):
-		return self.get_secrets(secret)['encryption']
+                secrets = self.get_secrets(secret)
+		try:
+                        tmp = secrets['encryption']
+                except KeyError:
+                        try: 
+                                tmp = secrets['read_only']
+                        except KeyError:
+                                return secrets
+                return tmp
 
 	def get_folder_prefs(self,secret,throw_exceptions=True):
 		"""
