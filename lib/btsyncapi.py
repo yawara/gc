@@ -110,7 +110,7 @@ class BtSyncApi(object):
 		"""
 		params = {'method': 'add_folder', 'dir': folder }
 		if secret is not None:
-			params['secret'] = self.get_secrets['read_write']
+			params['secret'] = self.get_secrets()['read_write']
 		if selective_sync:
 			params['selective_sync'] = 1
 		return self._request(params,throw_exceptions)

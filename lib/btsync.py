@@ -1,11 +1,17 @@
 import json
 import hashlib
 import os
+import sys
 
 from btsyncapi import BtSyncApi
 
 prefix = os.path.abspath(os.path.dirname(__file__)) + '/..'
-cfg = json.load(open(prefix+'/config.json','r'))
+try:
+  cfg = json.load(open(prefix+'/config.json','r'))
+except IOError:
+  sys.exit('Not Found: config.json')
+if not os.path.exists(cfg['prefix']):
+  sys.exit('Not Found: cfg[prefix]')
 
 class BTSync(BtSyncApi):
   def __init__(self,host=None,port=None,username=None,password=None,prefix=None):
