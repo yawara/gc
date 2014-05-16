@@ -22,6 +22,7 @@
 #
 
 import json
+import re
 import logging
 import requests
 
@@ -36,7 +37,7 @@ class BtSyncApi(object):
 	The docstrings of this class' methods were copied from the above site.
 	"""
 
-	def __init__(self,host='localhost',port='8888',username=None,password=None):
+	def __init__(self,host='localhost',port='8888',username='admin',password='password'):
 		"""
 		Parameters
 		----------
@@ -241,7 +242,7 @@ class BtSyncApi(object):
 		try:
                         tmp = secrets['encryption']
                 except KeyError:
-                        try: 
+                        try:
                                 tmp = secrets['read_only']
                         except KeyError:
                                 return secrets
@@ -413,6 +414,14 @@ class BtSyncApi(object):
 		Returns the HTTP status code of the last operation
 		"""
 		return self.response.status_code
+
+	@staticmethod
+	def validate_secret(string):
+		"""
+		Return True when the input string is a valid secret.
+		"""
+		return True if re.match('^[ABDEFR][0-9A-Z]{32,58}', string) else False
+
 
 	@staticmethod
 	def fix_decode(text):
