@@ -1,3 +1,4 @@
 # Error code
 {u'message': u'Invalid secret.', u'error': 3}
+{u'message': u"Can't open the destination folder.", u'error': 100}
 {u'message': u'Selected folder is already added to BitTorrent Sync.', u'error': 200}

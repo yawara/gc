@@ -22,7 +22,6 @@
 #
 
 import json
-import re
 import logging
 import requests
 
@@ -37,7 +36,7 @@ class BtSyncApi(object):
 	The docstrings of this class' methods were copied from the above site.
 	"""
 
-	def __init__(self,host='localhost',port='8888',username='admin',password='password'):
+	def __init__(self,host='localhost',port='8888',username=None,password=None):
 		"""
 		Parameters
 		----------
@@ -110,7 +109,7 @@ class BtSyncApi(object):
 		"""
 		params = {'method': 'add_folder', 'dir': folder }
 		if secret is not None:
-			params['secret'] = self.get_secrets()['read_write']
+			params['secret'] = secret
 		if selective_sync:
 			params['selective_sync'] = 1
 		return self._request(params,throw_exceptions)
@@ -208,7 +207,7 @@ class BtSyncApi(object):
 		params = { 'method': 'get_folder_peers', 'secret' : secret }
 		return self._request(params,throw_exceptions)
 
-	def get_secrets(self,secret=None,encryption=True,throw_exceptions=True):
+	def get_secrets(self,secret=None,encryption=False,throw_exceptions=True):
 		"""
 		Generates read-write, read-only and encryption read-only secrets.
 		If ‘secret’ parameter is specified, will return secrets available for
@@ -236,17 +235,6 @@ class BtSyncApi(object):
 		if encryption:
 			params['type'] = 'encryption'
 		return self._request(params,throw_exceptions)
-
-	def get_encryption(self,secret):
-                secrets = self.get_secrets(secret)
-		try:
-                        tmp = secrets['encryption']
-                except KeyError:
-                        try:
-                                tmp = secrets['read_only']
-                        except KeyError:
-                                return secrets
-                return tmp
 
 	def get_folder_prefs(self,secret,throw_exceptions=True):
 		"""
@@ -414,14 +402,6 @@ class BtSyncApi(object):
 		Returns the HTTP status code of the last operation
 		"""
 		return self.response.status_code
-
-	@staticmethod
-	def validate_secret(string):
-		"""
-		Return True when the input string is a valid secret.
-		"""
-		return True if re.match('^[ABDEFR][0-9A-Z]{32,58}', string) else False
-
 
 	@staticmethod
 	def fix_decode(text):
