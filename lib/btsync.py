@@ -22,10 +22,10 @@ class BTSync(BtSyncApi):
     self.prefix = cfg['prefix'] if prefix is None else prefix
     BtSyncApi.__init__(self,self.host,self.port,self.username,self.password)
 
-  def add_folder(self, folder, secret=None):
+  def add_folder(self, folder, secret=None, selective_sync=False):
     if secret is None:
       secret = self.get_secrets()['read_write']
-    return super(BTSync,self).add_folder(folder, secret)
+    return super(BTSync,self).add_folder(folder, secret, selective_sync)
 
   def register_secret(self, secret):
     dir_name = hashlib.sha256(secret).hexdigest()
