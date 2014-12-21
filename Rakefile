@@ -21,7 +21,8 @@ end
 task :set_varlib => "/var/lib/btsync"
 file "/var/lib/btsync" do mkdir "/var/lib/btsync" end
 
-task :set_conf => "btsync.conf" do
+task :set_conf => "btsync.conf" 
+file "btsync.conf" do
     cp "btsync.conf" "/etc/btsync.conf"
 end
 CLEAN.include("/etc/btsync.conf")
