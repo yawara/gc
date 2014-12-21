@@ -13,7 +13,9 @@ CLEAN.include("bin")
 task :install => [ :checkuid, :set_varlib, :set_conf, :set_init, :set_bin ]
 
 task :checkuid do
-    if Process.uid != 0 then exit(1) end
+    if Process.uid != 0 
+        puts "no root privilege"
+        exit(1) end
 end
 
 task :set_varlib => "/var/lib/btsync"
@@ -22,7 +24,7 @@ file "/var/lib/btsync" do mkdir "/var/lib/btsync" end
 task :set_conf => "btsync.conf" do
     cp "btsync.conf" "/etc/btsync.conf"
 end
-CLENA.include("/etc/btsync.conf")
+CLEAN.include("/etc/btsync.conf")
 
 task :set_init => "init.sh"
 file "/etc/init.d/btsync" do
