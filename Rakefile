@@ -23,20 +23,20 @@ file "/var/lib/btsync" do mkdir "/var/lib/btsync" end
 
 task :set_conf => "btsync.conf" 
 file "btsync.conf" do
-    cp "btsync.conf" "/etc/btsync.conf"
+    sh "cp btsync.conf /etc/btsync.conf"
 end
 CLEAN.include("/etc/btsync.conf")
 
 task :set_init => "init.sh"
 file "/etc/init.d/btsync" do
-    cp "init.sh" "/etc/inid.d/btsync"
+    sh "cp init.sh /etc/inid.d/btsync"
     sh "chkconfig --add btsync"
 end
 CLEAN.include("/etc/init.d/btsync")
 
 task :set_bin => "bin/btsync"
 file "bin/btsync" do
-    cp "bin/btsync" "/usr/local/bin/btsync"
+    sh "cp bin/btsync /usr/local/bin/btsync"
 end
 CLEAN.include("/usr/local/bin/btsync")
 
