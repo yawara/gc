@@ -9,7 +9,7 @@
 
 RETVAL=0
 prog="btsyc"
-exec=/usr/local/bin/btsync
+exec=/usr/bin/btsync
 lockfile=/var/lock/subsys/btsync
 config=/etc/btsync.conf
 
@@ -24,9 +24,9 @@ start() {
         exit 4
     fi
     [ -x $exec ] || exit 5
-    #[ -f $config ] || exit 6
     echo -n $"Starting $prog: "
-    daemon $prog --config $config
+    $exec --config $config
+    #daemon $prog --config $config
     retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile

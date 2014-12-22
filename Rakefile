@@ -31,12 +31,14 @@ CLEAN.include("/etc/btsync.conf")
 task :set_init => "/etc/init.d/btsync"
 file "/etc/init.d/btsync" => "init.sh" do
     cp "init.sh", "/etc/init.d/btsync"
+    chmod "+x", "/etc/init.d/btsync"
     sh "chkconfig --add btsync"
 end
 CLEAN.include("/etc/init.d/btsync")
 
-task :set_bin => "/usr/local/bin/btsync"
-file "/usr/local/bin/btsync" => "bin/btsync" do
-    cp "bin/btsync", "/usr/local/bin/btsync"
+task :set_bin => "/usr/bin/btsync"
+file "/usr/bin/btsync" => "bin/btsync" do
+    cp "bin/btsync", "/usr/bin/btsync"
+    chmod "+x", "/usr/bin/btsync"
 end
-CLEAN.include("/usr/local/bin/btsync")
+CLEAN.include("/usr/bin/btsync")
