@@ -8,7 +8,7 @@
 #              and folders across all of your trusted devices.
 
 RETVAL=0
-prog="btsyc"
+prog="btsync"
 exec=/usr/bin/btsync
 lockfile=/var/lock/subsys/btsync
 config=/etc/btsync.conf
@@ -25,8 +25,7 @@ start() {
     fi
     [ -x $exec ] || exit 5
     echo -n $"Starting $prog: "
-    $exec --config $config
-    #daemon $prog --config $config
+    daemon $prog --config $config
     retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile
@@ -38,12 +37,12 @@ stop() {
         exit 4
     fi
     echo -n $"Stopping $prog: "
-	if [ -n "`pidfileofproc $exec`" ]; then
+	#if [ -n "`pidfileofproc $exec`" ]; then
 		killproc $exec
 		RETVAL=3
-	else
-		failure $"Stopping $prog"
-	fi
+	#else
+	#	failure $"Stopping $prog"
+	#fi
     retval=$?
     echo
     [ $retval -eq 0 ] && rm -f $lockfile
