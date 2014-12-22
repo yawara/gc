@@ -15,37 +15,28 @@ task :install => [ :checkuid, :set_varlib, :set_conf, :set_init, :set_bin ]
 task :checkuid do
     if Process.uid != 0 
         puts "no root privilege"
-        exit(1) end
+        exit(1) 
+    end
 end
 
 task :set_varlib => "/var/lib/btsync"
 file "/var/lib/btsync" do mkdir "/var/lib/btsync" end
 
-task :set_conf => "btsync.conf" 
-file "btsync.conf" do
-    sh "cp btsync.conf /etc/btsync.conf"
+task :set_conf => "/etc/btsync.conf"
+file "/etc/btsync.conf" => "btsync.conf" do
+    cp "btsync.conf", "/etc/btsync.conf"
 end
 CLEAN.include("/etc/btsync.conf")
 
-task :set_init => "init.sh"
-file "/etc/init.d/btsync" do
-    sh "cp init.sh /etc/inid.d/btsync"
+task :set_init => "/etc/init.d/btsync"
+file "/etc/init.d/btsync" => "init.sh" do
+    cp "init.sh", "/etc/init.d/btsync"
     sh "chkconfig --add btsync"
 end
 CLEAN.include("/etc/init.d/btsync")
 
-task :set_bin => "bin/btsync"
-file "bin/btsync" do
-    sh "cp bin/btsync /usr/local/bin/btsync"
+task :set_bin => "/usr/local/bin/btsync"
+file "/usr/local/bin/btsync" => "bin/btsync" do
+    cp "bin/btsync", "/usr/local/bin/btsync"
 end
 CLEAN.include("/usr/local/bin/btsync")
-
-def check prog
-    print "checking for #{prog}... "
-    if system("test -x $(which #{prog})") then puts "yes" else puts "no" end
-end
-        
-task :configure do
-    check "wget"
-    check "tar"
-end
