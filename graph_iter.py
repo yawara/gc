@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-#import networkx as nx
-#from matplotlib import pyplot as plt
+import networkx as nx
+from matplotlib import pyplot as plt
 import scipy as sp
 import random, sys
 
@@ -42,9 +42,9 @@ def check(p):
   
   if ( width_d == 0 or width_d == 1 ) and sp.all( sp_M + sp_M.dot(sp_M) > 0 ):
     print(sp_M)
-    #G=nx.from_numpy_matrix(sp_M)
-    #nx.draw(G)
-    #plt.show()
+    G=nx.from_numpy_matrix(sp_M)
+    nx.draw(G)
+    plt.show()
     exit()
 
 def comb(n,m,*p):
