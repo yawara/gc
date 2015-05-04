@@ -18,7 +18,7 @@ while 1:
   G=nx.random_regular_graph(d,n)
   if nx.is_connected(G):
     diameter = nx.diameter(G)
-    if diameter == 3 or diameter == 2:
+    if diameter == 2:
       print(G)
       #nx.draw(G)
       #plt.show()

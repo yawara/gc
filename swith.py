@@ -24,8 +24,9 @@ def round(A,M,r):
       result = random.choice([-1,1])
       M[p_a][p_b] += result
       M[p_b][p_a] += -result
-      A[p_a][p_b], A[p_b][p_a] = 1, 1
-  
+      A[p_a][p_b] += 1
+      A[p_b][p_a] += 1  
+
   print(M)
 
 def fight(k):
@@ -42,8 +43,16 @@ def fight(k):
   print(M.sum(axis=0).max())
   print("ADJANCEY MATRIX")
   print(A)
-  #A = abs(M)
+  print("DEGREES")
+  print(A.sum(axis=0))
   G=nx.from_numpy_matrix(A)
+  print("ECCENTRICITY")
+  ec = nx.eccentricity(G)
+  print(ec)
+  np_ec = np.array(list(ec.values()))
+  print("average:", np.average(np_ec))
+  print("varience:", np.var(np_ec))
+  
   try:
     print("DIAMETER:", nx.diameter(G))
   except nx.exception.NetworkXError:
