@@ -2,7 +2,9 @@
 import random
 
 def comb(n, m, *p):
-    if m == 0:
+    if n < m:
+      raise Exception("COMB ERROR")
+    elif m == 0:
         if n == 0:
             yield p
         else:
