@@ -1,0 +1,11 @@
+#/usr/local/bin/ipython --profile=odp
+# GMT Mon May 11 08:58:29 2015
+# cycle_graph(5)
+0 1 4 7
+1 2 6
+2 3 6
+3 4 7
+4 5
+5 6 7
+6
+7
