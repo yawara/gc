@@ -1,0 +1,6 @@
+= Some Results for Order-Diameter Problem
+
+order: the number of vertices
+degree: the number of edges of 
+degree of graph: the maximum degree of graph
+diamete

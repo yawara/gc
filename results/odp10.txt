@@ -1,11 +1,13 @@
 #/usr/local/bin/ipython --profile=odp
 # GMT Wed May 13 11:24:02 2015
-# cycle_graph(5)
-0 1 4 7
+# Petersen Graph
+0 1 4 5
 1 2 6
-2 3 6
-3 4 7
-4 5
-5 6 7
-6
-7
+2 3 7
+3 8 4
+4 9
+5 8 7
+6 8 9
+7 9
+8
+9

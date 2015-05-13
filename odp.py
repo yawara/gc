@@ -7,7 +7,9 @@ def draw(G):
   plt.show()
 
 def check(G):
-  if nx.diameter(G) == 2:
+  if len(G.nodes()) == 10:
+    return nx.is_isomorphic(nx.petersen_graph(),G)
+  elif nx.diameter(G) == 2:
     ds = list(nx.degree(G).values())
     if max(ds) == min(ds) or max(ds) == min(ds) + 1:
       return True
@@ -23,6 +25,12 @@ def not_used_label_pair(G):
     for j in range(i+1, 1000):
       if not i in G.nodes() and not j in G.nodes():
         return i, j
+
+def not_used_five_labels(G):
+  for i in range(1000):
+    for j in range(1000):
+      for k in range(1000):
+        pass
       
 # return the graph duplicated given one node
 def dup_node(G, node):
@@ -67,6 +75,16 @@ def odp9():
       if [2,2,2] == list(map(lambda p: nx.degree(G,p) , nx.all_neighbors(G,node))):
         return dup_node2(G, node, list(nx.all_neighbors(G,node))[0])
 
+def dup_node5(G,nodes):
+  nodes.append(nodes[0])
+  iter_nodes = iter(nodes)
+  for node1, node2 in zip(iter_nodes,iter_nodes):
+    if not node2 in nx.all_neighbors(node1):
+      raise Exception("the five nodes must be pentagon")
+  
+  H = G.copy()
+  
+  
 # nodes are labed (i, j, k) 
 def odp13():
   G = nx.empty_graph()
