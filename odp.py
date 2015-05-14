@@ -3,7 +3,8 @@ import networkx as nx
 from matplotlib import pyplot as plt
 
 def draw(G):
-  nx.draw_networkx(G)
+  values = [nx.degree(G,node)+sum(map(lambda n: nx.degree(G,n),nx.all_neighbors(G,node))) for node in G.nodes()]
+  nx.draw_networkx(G,node_color=values,with_label=True)
   plt.show()
 
 def check(G):
@@ -15,28 +16,35 @@ def check(G):
       return True
   return False
 
-def not_used_label(G):
-  for i in range(1000):
-    if not i in G.nodes():
-      return i
+def not_used_labels(G, n):
+  max_value = 0
+  for node in G.nodes():
+    if type(node) == int and node > max_value:
+      max_value = node
+  return list(range(max_value+1,max_value+n+1))
 
-def not_used_label_pair(G):
-  for i in range(1000):
-    for j in range(i+1, 1000):
-      if not i in G.nodes() and not j in G.nodes():
-        return i, j
+def check_dup_nodes(G, *nodes):
+  for node in nodes:
+    if not node in G.nodes():
+      return False
+  if len(nodes) == 1:
+    return True
+  elif len(nodes) == 2:
+    return nodes[0] in nx.all_neighbors(G,nodes[1])
+  elif len(nodes) == 5:
+    nodes_f = iter(list(nodes)+[nodes[0]])
+    for a, b in zip(nodes_f,nodes_f):
+      if not a in nx.all_neighbors(G,b):
+        return False
+    return True
+  else:
+    return False
 
-def not_used_five_labels(G):
-  for i in range(1000):
-    for j in range(1000):
-      for k in range(1000):
-        pass
-      
 # return the graph duplicated given one node
 def dup_node(G, node):
-  if node in G.nodes():
+  if check_dup_nodes(G, node):
     H = G.copy()
-    node_dup = not_used_label(G)
+    node_dup = not_used_labels(G,1)[0]
     for neighbor in nx.all_neighbors(G, node):
       H.add_edge(node_dup ,neighbor)
     return H
@@ -46,9 +54,10 @@ def dup_node(G, node):
 # return the graph duplicated give two nodes
 # The node1 and node2 are NOT commutative!!!
 def dup_node2(G, node1, node2):
-  if node1 in nx.all_neighbors(G, node2):
+  if check_dup_nodes(G, node1, node2):
     H = G.copy()
-    node1_dup, node2_dup = not_used_label_pair(G)
+    labels = not_used_labels(G,2)
+    node1_dup, node2_dup = labels[0], labels[1]
     for neighbor_node1 in nx.all_neighbors(G, node1):
       if neighbor_node1 != node2:
         H.add_edge(node1_dup,neighbor_node1)
@@ -75,27 +84,51 @@ def odp9():
       if [2,2,2] == list(map(lambda p: nx.degree(G,p) , nx.all_neighbors(G,node))):
         return dup_node2(G, node, list(nx.all_neighbors(G,node))[0])
 
-def dup_node5(G,nodes):
-  nodes.append(nodes[0])
-  iter_nodes = iter(nodes)
-  for node1, node2 in zip(iter_nodes,iter_nodes):
-    if not node2 in nx.all_neighbors(node1):
-      raise Exception("the five nodes must be pentagon")
-  
-  H = G.copy()
-  
+def dup_node5(G,*nodes):
+  if check_dup_nodes(G,*nodes):
+    H = G.copy()
+    labels = not_used_labels(G,5)
+    
+    H.add_nodes_from(labels)
+    
+    H.add_edge(nodes[0],labels[0])
+    H.add_edge(nodes[1],labels[2])
+    H.add_edge(nodes[2],labels[4])
+    H.add_edge(nodes[3],labels[1])
+    H.add_edge(nodes[4],labels[3])
+    
+    H.add_edge(labels[0],labels[1])
+    H.add_edge(labels[1],labels[2])
+    H.add_edge(labels[2],labels[3])
+    H.add_edge(labels[3],labels[4])
+    H.add_edge(labels[4],labels[0])
+    
+    for i, label in enumerate(labels):
+      for neighbor in nx.all_neighbors(G, nodes[i]):
+        if not neighbor in nodes:
+          H.add_edge(label, neighbor)
+    
+    return H
+  else:
+    raise Exception("the five nodes are not a pentagon!!!")
+
+def to_str(*p):
+  rtv = str(p[0])
+  for i in p[1:]:
+    rtv += "_"+str(i)
+  return rtv
   
 # nodes are labed (i, j, k) 
 def odp13():
   G = nx.empty_graph()
   for j in range(4):
-    G.add_edge(0,(1,j))
+    G.add_edge(0,to_str(1,j))
     for k in range(2):
-      G.add_edge((1,j),(2,j,k))
+      G.add_edge(to_str(1,j),to_str(2,j,k))
   for j in range(3):
     for k in range(2):
-      G.add_edge((2,3,k),(2,j,k))
-      G.add_edge((2,j,k),(2,(j+1)%3,(k+1)%2))
+      G.add_edge(to_str(2,3,k),to_str(2,j,k))
+      G.add_edge(to_str(2,j,k),to_str(2,(j+1)%3,(k+1)%2))
   return G
 
 def odp14():
@@ -121,7 +154,8 @@ def odp(n):
   elif n == 9:
     G = odp9()
   elif n == 10:
-    G = nx.petersen_graph()
+    G = dup_node5(odp(5),0,1,2,3,4)
+    #G = nx.petersen_graph()
   elif n == 11:
     G = dup_node(odp(10),0)
   elif n == 12:
