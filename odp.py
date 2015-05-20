@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 import networkx as nx
 from matplotlib import pyplot as plt
+import numpy as np
+
 
 def draw(G):
   values = [nx.degree(G,node)+sum(map(lambda n: nx.degree(G,n),nx.all_neighbors(G,node))) for node in G.nodes()]
   nx.draw_circular(G,node_color=values,with_label=True)
   plt.show()
 
+  
 def check(G):
   if len(G.nodes()) == 10:
     return nx.is_isomorphic(nx.petersen_graph(),G)
@@ -16,12 +19,18 @@ def check(G):
       return True
   return False
 
+
+def ave_deg(G):
+  return np.average(list(nx.degree(G).values()))
+
+
 def not_used_labels(G, n):
   max_value = 0
   for node in G.nodes():
     if type(node) == int and node > max_value:
       max_value = node
   return list(range(max_value+1,max_value+n+1))
+
 
 def check_dup_nodes(G, *nodes):
   for node in nodes:
@@ -42,6 +51,7 @@ def check_dup_nodes(G, *nodes):
   else:
     return False
 
+  
 # return the graph duplicated given one node
 def dup_node(G, node):
   if check_dup_nodes(G, node):
@@ -53,6 +63,7 @@ def dup_node(G, node):
   else:
     raise Exception("no the node in G")
 
+    
 # return the graph duplicated give two nodes
 # The node1 and node2 are NOT commutative!!!
 def dup_node2(G, node1, node2):
@@ -72,6 +83,7 @@ def dup_node2(G, node1, node2):
   else:
     raise Exception("the two nodes are not connected")
 
+    
 def dup_node3(G, *nodes):
   if check_dup_nodes(G, *nodes):
     H = G.copy()
@@ -93,6 +105,7 @@ def dup_node3(G, *nodes):
     
     return H
   
+  
 def odp8():
   G = odp(7)
   for node in G.nodes():
@@ -100,6 +113,7 @@ def odp8():
       if [2,2,2] == list(map(lambda p: nx.degree(G,p) , nx.all_neighbors(G,node))):
         return dup_node(G,node)
 
+      
 def odp9():
   G = odp(7)
   for node in G.nodes():
@@ -107,6 +121,7 @@ def odp9():
       if [2,2,2] == list(map(lambda p: nx.degree(G,p) , nx.all_neighbors(G,node))):
         return dup_node2(G, node, list(nx.all_neighbors(G,node))[0])
 
+      
 def dup_node5(G,*nodes):
   if check_dup_nodes(G,*nodes):
     H = G.copy()
@@ -165,6 +180,7 @@ def odp13():
       G.add_edge(to_str(2,j,k),to_str(2,(j+1)%3,(k+1)%2))
   return G
 
+
 def odp14():
   G = odp13()
   for node in G.nodes():
@@ -172,6 +188,7 @@ def odp14():
       if [3,3,3,3] == list(map(lambda p: nx.degree(G,p) , nx.all_neighbors(G,node))):
         return dup_node(G, node)
 
+      
 def merge_nodes(G, *nodes):
   H = G.copy()
   H.remove_nodes_from(nodes)
@@ -182,26 +199,34 @@ def merge_nodes(G, *nodes):
       if not neighbor in nodes:
         H.add_edge(label, neighbor)
   return H
+
+
+def mult5(q):
+  if q == 1:
+    return odp(5)
+  else:
+    return dup_node5(mult5(q-1),0,1,2,3,4)
+
   
 def odp_mod5(n):
-  def mult5(q):
-    if q == 1:
-      return odp(5)
-    else:
-      return dup_node5(mult5(q-1),0,1,2,3,4)
-  
   q = n // 5
   r = n % 5
   if r == 0:
+    print("0 mod 5")
     return mult5(q)
   elif r == 1:
+    print("1 mod 5")
     return dup_node(mult5(q),0)
   elif r == 2:
+    print("2 mod 5")
     return dup_node2(mult5(q),0,1)
   elif r == 3:
+    print("3 mod 5")
     return dup_node3(mult5(q),0,1,2)
   elif r == 4:
+    print("4 mod 5")
     return merge_nodes(mult5(q+1),0,5)
+
   
 def odp22():
   G = nx.Graph()
@@ -217,6 +242,7 @@ def odp22():
     for k in range(3):
       G.add_edge(to_str(2,j,k),to_str(2,j+2,k))
   return dup_node(G,0)
+
 
 def mult8(q):
   if q < 3:
@@ -250,8 +276,32 @@ def mult8(q):
           G.add_edge((i,1,k),(j,2,(k+1)%3))
           G.add_edge((i,2,k),(j,1,(k-1)%3))
   
-  return G
+  return G  
 
+
+def odp_mod8(n):
+  q = n // 8
+  r = n % 8
+  
+  if r > 3:
+    raise Exception("mod8 accept r <= 2")
+  
+  G = mult8(q)
+  
+  if r == 0:
+    print("0 mod 8")
+    return G
+  if r == 1:
+    print("1 mod 8")
+    return dup_node(G, (0,0,0))
+  if r == 2:
+    print("2 mod 8")
+    return dup_node2(G, (0,0,0), (0,1,0))
+  if r == 3:
+    print("3 mod 8")
+    return dup_node3(G, (0,0,0), (0,1,0), (0,2,0))
+
+  
 def mult7(q):
   if q < 3:
     raise Exception("Oops! q >= 3")
@@ -285,6 +335,7 @@ def mult7(q):
   
   return G
 
+
 def mult6(q):
   if q < 3:
     raise Exception("Oops! q >= 3")
@@ -314,7 +365,8 @@ def mult6(q):
           G.add_edge((i,2,k),(j,1,(k+1)%2))
 
   return G  
-  
+
+
 def odp(n):
   if n <= 1:
     raise Exception("The order of graph is greater than 1!!!")
@@ -343,15 +395,24 @@ def odp(n):
     G = odp14()
   elif n == 22:
     G = odp22()
-  elif n % 8 == 0 and n // 8 > 2:
-    return mult8(n//8)
+  elif n % 8 <= 3 and n // 8 > 2:
+    G = odp_mod8(n)
   elif n % 7 == 0 and n // 7 > 2:
-    return mult7(n//7)
+    print("0 mod 7")
+    G = mult7(n//7)
+  elif n % 7 == 3 and n // 7 > 2:
+    print("3 mod 7")
+    G = dup_node3(mult7(n//7),(0,2,0),(0,2,1),(0,2,2))
   elif n % 6 == 0 and n // 6 > 2:
-    return mult6(n//6)
+    print("0 mod 6")
+    G = mult6(n//6)
+  elif n % 6 == 1 and n // 6 > 2:
+    print("1 mod 6")
+    G = dup_node(mult6(n//6),(0,1,0))
   else:
     G = odp_mod5(n) 
   return G
+
 
 def order_diameter_problem(n , diameter=2):
   if diameter != 2:
