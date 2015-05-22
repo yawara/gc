@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import networkx as nx
-from matplotlib import pyplot as plt
+import numpy as np
 from erdos import rtv
 
 def get(p):
@@ -29,8 +29,15 @@ def get(p):
 
 def show(p):
   G = get(p)
+  deg_vals = list(G.degree().values())
+  max_d = max(deg_vals)
+  min_d = min(deg_vals)
+  if max_d - min_d == 1 or max_d - min_d == 0:
+    deg_ave = np.average(deg_vals)
+    print("degree is safe:", deg_ave)
+  
   print("diameter:", nx.diameter(G))
   print("node:", len(G.nodes()))
   if len(G.nodes()) in rtv:
-    print("FAIL")
-  print(G.degree().values())
+    print("order in erdos nums")
+  print("erodos bound:", deg_ave**2-deg_ave+1)
