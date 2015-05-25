@@ -6,7 +6,6 @@ for p in primes:
   for k in range(1, 30):
     q = p ** k
     n = q ** 2 + q + 1
-    rtv.append(n)
+    rtv.append((n,q+1,p,k))
     
 rtv.sort()
-

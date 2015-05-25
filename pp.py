@@ -2,6 +2,7 @@
 import networkx as nx
 import numpy as np
 from erdos import rtv
+from math import sqrt
 
 def get(p):
   lines = set()
@@ -32,12 +33,12 @@ def show(p):
   deg_vals = list(G.degree().values())
   max_d = max(deg_vals)
   min_d = min(deg_vals)
+  print("diameter:", nx.diameter(G))
   if max_d - min_d == 1 or max_d - min_d == 0:
     deg_ave = np.average(deg_vals)
     print("degree is safe:", deg_ave)
-  
-  print("diameter:", nx.diameter(G))
   print("node:", len(G.nodes()))
+  print("root of nodes", int(sqrt(len(G.nodes()))),",",int(2*sqrt(len(G.nodes()))))
   if len(G.nodes()) in rtv:
     print("order in erdos nums")
   erdos_bound = deg_ave**2-deg_ave+1
