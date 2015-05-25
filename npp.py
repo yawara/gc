@@ -32,10 +32,12 @@ def show(p):
   deg_vals = list(G.degree().values())
   max_d = max(deg_vals)
   min_d = min(deg_vals)
+  deg_ave = np.average(deg_vals)
   if max_d - min_d == 1 or max_d - min_d == 0:
-    deg_ave = np.average(deg_vals)
     print("degree is safe:", deg_ave)
-  
+  else:
+    print("DEGREE FAILED", deg_ave)
+    
   print("diameter:", nx.diameter(G))
   print("node:", len(G.nodes()))
   if len(G.nodes()) in rtv:

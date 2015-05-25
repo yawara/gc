@@ -8,10 +8,11 @@ def get(p):
   for i in range(p):
     for j in range(p):
       for k in range(p):
-        if all(not ((a*i)%p,(a*j)%p,(a*k)%p) in lines for a in range(1,p)):
-          lines.add((i,j,k)) 
+        for l in range(p):
+          if all(not ((a*i)%p,(a*j)%p,(a*k)%p,(a*l)%p) in lines for a in range(1,p)):
+            lines.add((i,j,k,l)) 
   
-  lines.remove((0,0,0))
+  lines.remove((0,0,0,0))
   #print(lines)
 
   G = nx.Graph()
@@ -20,7 +21,7 @@ def get(p):
     for line2 in lines:
       if line1 != line2:
         norm = 0
-        for i in range(3):
+        for i in range(4):
           norm += line1[i]*line2[i]
         if norm % p == 0:
           G.add_edge(line1,line2)
@@ -40,7 +41,4 @@ def show(p):
   print("node:", len(G.nodes()))
   if len(G.nodes()) in rtv:
     print("order in erdos nums")
-  erdos_bound = deg_ave**2-deg_ave+1
-  print("erodos bound:", erdos_bound)
-  print(int(100*len(G.nodes())/erdos_bound),"%")
-  
+  print("erodos bound:", deg_ave**2-deg_ave+1)
