@@ -12,23 +12,29 @@ def dot_product(v,w,R):
     rtv += v[i] * w[i]
   return rtv
 
-def get(R):
+def get(Q):
   G = nx.Graph()
-  V = product(R, repeat=3)
   
-  zero_vec = (R.zero(), R.zero(), R.zero())
+  R = Q.polynomial_ring()
+  B = R.base_ring()
+  V = product(list(R.polynomials(Q.degree()-1))+list(B), repeat=3)
+  
+  zero_vec = (Q.zero(), Q.zero(), Q.zero())
   
   G.add_node(zero_vec)
   
-  Rp = list(R)
-  Rp.remove(R.zero())
+  lB = list(B)
+  lB.remove(B.zero())
+  Rp = list(R.polynomials(Q.degree()-1))+lB
+  Rgen = R.gen()
+  Qgen = Q.gen()
   
   for v in V:
     if all(not (r*v[0],r*v[1],r*v[2]) in G for r in Rp):
       #v[0].set_immutable()
       #v[1].set_immutable()
       #v[2].set_immutable()
-      G.add_node((v[0],v[1],v[2]))
+      G.add_node((v[0](Rgen = Qgen),v[1](Rgen = Qgen),v[2](Rgen = Qgen)))
   
   G.remove_node(zero_vec)
   
@@ -38,15 +44,16 @@ def get(R):
       
   return G
 
-def show(R):
-  G = get(R)
+def show(G):
   deg_vals = list(G.degree().values())
   max_d = max(deg_vals)
   min_d = min(deg_vals)
   print("diameter:", nx.diameter(G))
+  deg_ave = np.average(deg_vals)
   if max_d - min_d == 1 or max_d - min_d == 0:
-    deg_ave = np.average(deg_vals)
     print("degree is safe:", deg_ave)
+  else:
+    print("FAIL:", deg_ave)
   print("node:", len(G.nodes()))
   print("root of nodes", int(sqrt(len(G.nodes()))),",",int(2*sqrt(len(G.nodes()))))
   if len(G.nodes()) in rtv:

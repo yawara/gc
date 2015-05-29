@@ -44,4 +44,4 @@ def show(p):
   erdos_bound = deg_ave**2-deg_ave+1
   print("erodos bound:", erdos_bound)
   print(int(100*len(G.nodes())/erdos_bound),"%")
-  
+
