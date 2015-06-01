@@ -1,12 +1,12 @@
 #!/usr/bin/env python3 
 import networkx as nx
 
-def regular2(n,d):
+def regular_D(n,d,D):
   while True:
     G=nx.random_regular_graph(d,n)
     if nx.is_connected(G):
       diameter = nx.diameter(G)
-      if diameter == 2:
+      if diameter == D:
         return G
 
 if __name__ == "__main__":
