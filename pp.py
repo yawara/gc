@@ -3,6 +3,39 @@ import networkx as nx
 import numpy as np
 from erdos import rtv
 from math import sqrt
+import pyprimes
+
+def erdos_order(p,k):
+  q = p**k
+  return q**2 + q + 1
+
+def erdos_degree(p,k):
+  q = p**k
+  return q + 1
+
+def order(n):
+  rtv = n**2
+  for (p,_) in pyprimes.factorise(n):
+    rtv *= 1 + 1/p + 1/p**2
+  return int(rtv)
+
+def degree(n):
+  rtv = n
+  for (p,_) in pyprimes.factorise(n):
+    rtv *=  1 + 1/p 
+  return int(rtv)
+
+def is_ddp_new(n):
+  if pyprimes.isprime(n):
+    return False
+  for i in range(1,100):
+    deg = degree(n)
+    facts = pyprimes.factors(deg - i)
+    if len(set(facts)) == 1:
+      p, k = facts[0], len(facts)
+      if order(n) - erdos_order(p, k) > degree(n) - erdos_degree(p, k):
+        print(n,p,k)
+      break
 
 def get(p):
   lines = set()
