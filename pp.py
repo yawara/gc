@@ -25,18 +25,20 @@ def degree(n):
     rtv *=  1 + 1/p 
   return int(rtv)
 
-def is_ddp_new(n):
-  if pyprimes.isprime(n):
-    return False
+def is_ddp_new(o,d):
   for i in range(1,100):
-    deg = degree(n)
-    facts = pyprimes.factors(deg - i)
+    facts = pyprimes.factors(d - i)
     if len(set(facts)) == 1:
       p, k = facts[0], len(facts)
-      if order(n) - erdos_order(p, k) > degree(n) - erdos_degree(p, k):
-        print(n,p,k)
-      break
-
+      eo, ed = erdos_order(p, k), erdos_degree(p, k)
+      if p == 2:
+        eo += 1
+      if o - eo  > d - ed:
+        print(eo,ed,p,k)
+        return True
+      else:
+        return False
+    
 def get(p):
   lines = set()
   for i in range(p):
