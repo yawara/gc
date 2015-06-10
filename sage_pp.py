@@ -2,7 +2,6 @@ from sage.all import *
 import networkx as nx
 from itertools import product
 import numpy as np
-from erdos import rtv
 
 def dot_product(v,w,R):
   if len(v) != len(w):
@@ -49,8 +48,6 @@ def show(R):
     print("degree is safe:", deg_ave)
   print("node:", len(G.nodes()))
   print("root of nodes", int(sqrt(len(G.nodes()))),",",int(2*sqrt(len(G.nodes()))))
-  if len(G.nodes()) in rtv:
-    print("order in erdos nums")
   erdos_bound = deg_ave**2-deg_ave+1
   print("erodos bound:", erdos_bound)
   print(int(100*len(G.nodes())/erdos_bound),"%")

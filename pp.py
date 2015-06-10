@@ -3,6 +3,24 @@ import networkx as nx
 import numpy as np
 from math import sqrt
 import pyprimes
+from itertools import product
+
+def euler_phi(n):
+  rtv = n
+  for p, _ in pyprimes.factorise(n):
+    rtv *= ( 1 - 1/p )
+  return round(rtv)
+
+def cnt_circle(n):
+  lines = set()
+  for i,j,k in product(range(n),repeat=3):
+    if all( ((a*i)%n,(a*j)%n,(a*k)%n) != (0,0,0) for a in range(1,n) ):
+      lines.add((i,j,k))
+  cnt = 0
+  for (i,j,k) in lines:
+    if (i**2+j**2+k**2)%n == 0:
+      cnt+=1
+  return round((cnt-1)/euler_phi(n))
 
 def erdos_order(p,k):
   q = p**k
@@ -24,13 +42,13 @@ def order(n):
   rtv = n**2
   for (p,_) in pyprimes.factorise(n):
     rtv *= 1 + 1/p + 1/p**2
-  return int(rtv)
+  return round(rtv)
 
 def degree(n):
   rtv = n
   for (p,_) in pyprimes.factorise(n):
     rtv *=  1 + 1/p 
-  return int(rtv)
+  return round(rtv)
 
 def is_ddp_new(o,d):
   for i in range(1,100):
