@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import networkx as nx
 import numpy as np
-from erdos import rtv
 from math import sqrt
 import pyprimes
 
@@ -13,6 +12,14 @@ def erdos_degree(p,k):
   q = p**k
   return q + 1
 
+def erdos_orders():
+  rtv = []
+  for p in pyprimes.primes_below(1000):
+    for k in range(1,30):
+      rtv.append(erdos_order(p,k))
+  rtv.sort()
+  return rtv
+  
 def order(n):
   rtv = n**2
   for (p,_) in pyprimes.factorise(n):
@@ -74,7 +81,7 @@ def show(p):
     print("degree is safe:", deg_ave)
   print("node:", len(G.nodes()))
   print("root of nodes", int(sqrt(len(G.nodes()))),",",int(2*sqrt(len(G.nodes()))))
-  if len(G.nodes()) in rtv:
+  if len(G.nodes()) in erdos_orders():
     print("order in erdos nums")
   erdos_bound = deg_ave**2-deg_ave+1
   print("erodos bound:", erdos_bound)
