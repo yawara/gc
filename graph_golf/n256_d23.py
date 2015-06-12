@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import networkx as nx
 from create_random import *
 
@@ -114,3 +116,8 @@ def n256_d23():
         G.add_edge((2,j,term,k),(3,(j+1)%8,term,k))
         
   return G
+
+if __name__ == "__main__":
+  G = n256_d23()
+  H=nx.convert_node_labels_to_integers(G)
+  nx.write_edgelist(H,"n256_d23_D2_edgelist.txt")
