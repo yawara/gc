@@ -100,7 +100,17 @@ def n256_d22():
       G.add_edge((2,j,"down",(k+1)%3),(3,j,"down",(k+1)%3))
   
   return G
-       
-          
-          
-          
+
+def n256_d23():
+  G = n256_d22()
+  
+  for j in range(8):
+    for k in range(2):
+      G.add_edge((0,j,"up",k),(1,(j+1)%8,"up",k))
+      G.add_edge((2,j,"up",k),(3,(j+1)%8,"up",k))
+    for term in ["mid","down"]:
+      for k in range(3):
+        G.add_edge((0,j,term,k),(1,(j+1)%8,term,k))
+        G.add_edge((2,j,term,k),(3,(j+1)%8,term,k))
+        
+  return G
