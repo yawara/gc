@@ -1,12 +1,6 @@
 #!/usr/bin/python2.7
 # coding: utf-8
 #=======================================================================
-# 
-# Create a 16-regular graph with 64 vertices and diameter 2
-# by yawara
-# 2015-05-31
-#
-#=======================================================================
 #
 #	Create a random graph
 #	by Ikki Fujiwara, National Institute of Informatics
@@ -16,9 +10,9 @@
 # "create-random.py" is licensed under a Creative Commons Attribution 4.0 International License.
 # http://creativecommons.org/licenses/by/4.0/
 
-author = "yawara"
-email = "yawara@kurims.kyoto-u.ac.jp"
-text1 = "hi!"
+author = "(random)"
+email = "graphgolf@nii.ac.jp"
+text1 = "A random graph provided as a baseline."
 
 import networkx as nx
 import argparse
@@ -26,16 +20,13 @@ argumentparser = argparse.ArgumentParser()
 argumentparser.add_argument('nnodes', type=int)
 argumentparser.add_argument('degree', type=int)
 
-def yawara():
-  return G
-
 def main(args):
 	nnodes = args.nnodes
 	degree = args.degree
 	assert degree < nnodes
 	
 	low_diam, low_aspl = lower_bound_of_diam_aspl(nnodes, degree)
-	g = yawara()
+	g = nx.random_regular_graph(degree, nnodes, 0)
 	hops = nx.shortest_path_length(g, weight=None)
 	diam, aspl = max_avg_for_matrix(hops)
 	print("{}\t{}\t{}\t{}\t{}\t{}\t{}%".format(nnodes, degree, diam, aspl, diam - low_diam, aspl - low_aspl, 100 * (aspl - low_aspl) / low_aspl))
