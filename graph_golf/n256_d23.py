@@ -3,6 +3,9 @@
 import networkx as nx
 from create_random import *
 
+"""
+the base() returns the graph with n = 256, d = 10
+"""
 def base():
   G = nx.Graph()
   
@@ -26,6 +29,9 @@ def base():
   return G
 
 
+"""
+the n256_d22() returns the graph with n = 256, d = 10, D = 2
+"""
 def n256_d22():
   G = base()
   
