@@ -40,5 +40,8 @@ def get(Q):
 
   return G
   
+def attributes(G):
+  return len(G),tuple(set(G.degree().values())),nx.diameter(G)
+
 def show(G):
-  return len(G),set(G.degree().values()),nx.diameter(G)
+  print(attributes(G))
