@@ -1,0 +1,153 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年○月○日}
+\maketitle
+
+\subsection{演習問題１}
+
+\begin{enumerate}
+\item 次のベクトル$\bm u, \bm v$に対して内積$\bm u \cdot \bm v$を求めよ．また，関係式（\ref{cos}）$\bm u \cdot \bm v=|\bm u| |\bm v|\cos \theta $を用いて，$\bm u, \bm v$の間のなす各 $\theta$（$0\leq \theta \leq \pi$）を求めよ．
+\begin{enumerate}
+\item $\bm u= (-1, 0, 7), \bm v= (-4, 5,3)$ \label{a}
+\item $\bm u= (-1, 1, 0), \bm v= (1, -2, 2)$ \label{b}
+\end{enumerate}
+
+\item ３次元ベクトル$\bm u\not =\bm 0, \bm v\not= \bm 0$に対して「$\bm u$と$\bm v$が直行 $\iff$ $\bm u \cdot \bm v=0$」を示せ．
+\item 次のベクトル$\bm u, \bm v$に対して外積$\bm u \times \bm v$を求めよ．
+\begin{enumerate}
+\item $\bm u= (-2, 3, 7), \bm v= (-4, 2,3)$
+\item $\bm u= (4, 1, 1), \bm v= (0, -2, 2)$
+\end{enumerate}
+
+\item 次の主張を確かめよ．「$3$次元ベクトル$\bm u$と$\bm v$に対して，外積$\bm u \times \bm v$は$3$次元ベクトルで，矢印の向きは$\bm u$から$\bm v$方向に右ネジを回してネジが進む方向、大きさは$\bm u$と$\bm v$の張る平行四辺形の面積である．」
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}
+  \item
+    \begin{enumerate}
+      \item 
+        \[ \bm u \cdot \bm v = (-1) \times (-4) + 0 \times 5 + 7 \times 3 = 25 \]
+        \[ \cos \theta = \frac { \bm u \cdot \bm v } { \bm u \bm v } = \frac { 25 } { \sqrt{50} \sqrt{50} } = \frac{1}{2} \]
+      \item
+        \[ \bm u \cdot \bm v = (-1) \times 1 + 1 \times (-2) + 0 \times 2 = -3\] 
+        \[ \cos \theta = \frac { \bm u \cdot \bm v } { \bm u \bm v } = \frac { -3 } { \sqrt 2 \sqrt 9 } = - \frac { 1 } { \sqrt 2 } \]
+    \end{enumerate}
+  \item
+    $\bm u \neq \bm 0, \bm v \neq \bm 0$ すなわち$|\bm u| \neq 0, |\bm v| \neq 0$ また $\bm u \cdot \bm v = |\bm u| |\bm v| \cos \theta$ より、$\bm u$と$\bm v$が直交 $\Leftrightarrow$ $\cos \theta = 0$ $\Leftrightarrow$ $\bm u \cdot \bm v = |\bm u| |\bm v| \cos \theta = 0$
+  \item
+    \begin{enumerate}
+      \item $\bm u \times \bm v = (-5,-22,8)$
+      \item $\bm u \times \bm v = (4,-8,-8)$
+    \end{enumerate}
+  
+  \item
+    $\bm u = (a,b,c)$と$\bm v=(x,y,z)$とおく。また$\bm u$と$\bm v$のなす角を$\theta$とおく。
+    
+    $\bm u \times \bm v = (bz-cy,cx-az,ay-bx)$ より、
+    \[ \bm u \cdot (\bm u \times \bm v) = a(bz-cy)+b(xz-az)+c(ay-bx) = 0\]
+    また
+    \[ \bm v \cdot (\bm u \times \bm v) = x(bz-cy)+y(xz-az)+z(ay-bx) = 0\]
+    よって$\bm u \times \bm v$は$\bm u$と$\bm v$に直行している。すなわち$\bm u$と$\bm v$の張る平面に直行していることがわかる。
+    \begin{eqnarray*}
+      |\bm u \times \bm v|^2 & = & (bz-cy)^2+(cx-az)^2+(ay-bx)^2 \\
+      & = & (a^2+b^2+c^2)(x^2+y^2+z^2) - (ax+by+cz)^2 \\
+      & = & |\bm u|^2 |\bm v|^2 - (\bm u \cdot \bm v)^2 \\ 
+      & = & |\bm u|^2 |\bm v|^2 - |\bm u|^2 |\bm v|^2 \cos^2 \theta \\
+      & = & |\bm u|^2 |\bm v|^2 ( 1 - \cos^2 \theta) \\
+      & = & |\bm u|^2 |\bm v|^2 \sin^2 \theta
+    \end{eqnarray*}
+    より$|\bm u \times \bm v| = |\bm u||\bm v| |\sin \theta|$である。
+    よって$\bm u \times \bm v$の大きさは$\bm u$と$\bm v$の張る平行四辺形の面積に等しい。
+    
+    $\left[ \bm u, \bm v, \bm u \times \bm v \right]$の行列式が正であることが言えれば、$\bm u \times \bm v$の矢印の向きは$\bm u$から$\bm v$方向に右ネジを回してネジが進む方向ということが言える。
+    \begin{eqnarray*} 
+      \left| 
+        \begin{array}{ccc}
+          a & b & c \\
+          x & y & z \\
+          bz-cy & cx-az & ay-bx 
+        \end{array}
+      \right| 
+    & = & a^{2} y^{2} + a^{2} z^{2} - 2 a b x y - 2 a c x z + b^{2} x^{2} + b^{2} z^{2} - 2 b c y z + c^{2} x^{2} + c^{2} y^{2} \\
+    & = & (bz-cy)^2+(cx-az)^2+(ay-bx)^2 > 0
+    \end{eqnarray*}
+\end{enumerate}
+
+\end{document}
