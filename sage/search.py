@@ -3,7 +3,7 @@
 from sage.all import *
 from sage_poly import *
 
-def search(n):
+def search(n,m):
   R = Zmod(n)
   print(R)
   print("")
@@ -11,11 +11,11 @@ def search(n):
   x = var('x')
   P = PolynomialRing(R, x)
 
-  for p in P.polynomials(2):
-    if R.is_field() and p in P.irreducible_element(2):
+  for p in P.polynomials(m):
+    if R.is_field() and p in P.irreducible_element(m):
       pass
     else:
-      if p in P.monics(2):
+      if p in P.monics(m):
         print(p)
         Q = P.quotient(p)
         G = get(Q)
@@ -25,4 +25,5 @@ def search(n):
 if __name__ == "__main__":
   import sys
   n = int(sys.argv[1])
-  search(n)
+  m = int(sys.argv[2])
+  search(n,m)
