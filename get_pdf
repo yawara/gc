@@ -1,0 +1,5 @@
+#!/bin/bash
+platex $1 && \
+name=$(echo $1 | sed -e 's/\(.*\)\.tex/\1/g') && \
+dvipdfm ${name}.dvi && \
+open ${name}.pdf

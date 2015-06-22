@@ -120,15 +120,15 @@
     \item
       \begin{enumerate}
         \item
-          \[\frac {\bm r'(t)}{|\bm r'(t)|} = (\frac{1}{\sqrt{1+4t^2}}, \frac{2t}{\sqrt{1+4t^2}})\]
+          \[\frac {\bm r'(t_0)}{|\bm r'(t_0)|} = (\frac{1}{\sqrt{1+4t_0^2}}, \frac{2t_0}{\sqrt{1+4t_0^2}})\]
         \item
-          \[\frac {\bm r'(t)}{|\bm r'(t)|} = (-\sin t, \cos t) \]
+          \[\frac {\bm r'(t_0)}{|\bm r'(t_0)|} = (-\sin t_0, \cos t_0) \]
       \end{enumerate}
     \item
       \begin{enumerate}
         \item
           $\bm r'(t) = (\cos t - t \sin t, \sin t + t \cos t),|\bm r'(t)| = \sqrt{1+t^2}$より、
-          \[ \int_L f \d s = \int_0^{2\pi} t \sqrt{1+2t^2} = \left[ \frac{1}{2} \cdot \frac{2}{3}  (1+t^2)^\frac{3}{2} \right]_0^{2\pi} = \frac{1}{3} \left\{ (1+4\pi^2)^\frac{3}{2} - 1 \right\} \]
+          \[ \int_L f \d s = \int_0^{2\pi} t \sqrt{1+t^2} \d t = \left[ \frac{1}{2} \cdot \frac{2}{3}  (1+t^2)^\frac{3}{2} \right]_0^{2\pi} = \frac{1}{3} \left\{ (1+4\pi^2)^\frac{3}{2} - 1 \right\} \]
         \item
           \begin{eqnarray*} 
             \int_L \bm V \cdot \d \bm{r} & = & \int_0^{2\pi} \cos t ( \cos t - t \sin t ) \d t \\
@@ -139,15 +139,11 @@
           \end{eqnarray*}
       \end{enumerate}
     \item
-      スカラー場を$U(\bm r)$, 曲線$\bm C: \bm r(t)$ ただし$t1 \leq t \leq t2$とおく。
-      \begin{eqnarray*}
-        \int_{\bm C} \grad U \cdot \d \bm{r} & = & \int_{\bm r(t1)}^{\bm r(t2)} \frac{\partial U}{\partial x} \d x + \frac{\partial U}{\partial y} \d y + \frac{\partial U}{\partial z} \d z \\
-        & = & \int_{t1}^{t2} \left( \frac{\partial U}{\partial x} \frac{\d x}{\d t} + \frac{\partial U}{\partial y} \frac{\d y}{\d t} + \frac{\partial U}{\partial z} \frac{\d z}{\d t} \right) \d t \\
-        & = & \int_{t1}^{t2} \frac{\d U}{\d t} \d t = U(\bm r(t2) - U(\bm r(t1))
-      \end{eqnarray*}
-      より、勾配場の線積分はスカラー場の終点と始点の値の差になることがわかる。よって閉曲線であれば始点と終点が一致するため勾配場の線積分はゼロである。
+      スカラー場を$U(\bm r)$, 曲線$\bm C: \bm r(t)$ ただし$t_1 \leq t \leq t_2$とおく。
+      \[ \int_{\bm C} \grad U \cdot \d \bm{r}  = U(\bm r(t_2) - U(\bm r(t_1)) \]
+      より、勾配場の線積分はスカラー場の終点と始点の値の差になる。よって閉曲線であれば始点と終点が一致するため勾配場の線積分はゼロである。
     \item
-      半径$r$の円周上で左回りに$\bm V$を積分する。
+      半径$1$の円周上で左回りに$\bm V$を積分する。
       \begin{eqnarray*} 
         \int_{\bm C} \bm V \cdot \d \bm r & = & \int_0^{2\pi} \d \theta ( - \sin^2 \theta + 2 \cos^2 \theta ) \\
         & = & \int_0^{2\pi} \d \theta ( \cos 2\theta + \cos^2 \theta) \\
@@ -164,7 +160,6 @@
         \item
         \item
       \end{enumerate}
-    \item
       
   \end{enumerate}
 
