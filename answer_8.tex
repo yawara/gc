@@ -1,0 +1,136 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+%%% ywr extend 
+\def\d{\mathrm d}
+\def\grad{\mathrm grad}
+\def\rot{\mathrm{\bm rot}}
+\def\div{\mathrm{div}}
+%%%
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年度前期}
+\maketitle
+
+\begin{center} {\Large 演習問題８ } \end{center}
+\begin{enumerate}
+\item \cite[練習問題4.9, 4.11, 章末問題4.5]{koba} 次の領域の面積を面積分により計算せよ．
+\begin{enumerate}
+\item 点$(0,0,1), (2,0,1),(2,1,1), (0,1,1)$を頂点とする長方形.
+\item 原点を中心とする半径$3$の球面の$z>0$の部分．
+\item $z$軸を中心とし，半径$3$の円筒の側面の$-1\leq z\leq 2$の部分．
+\item 平行四辺形$\psi(s,t)=(s,t,2s+3t)$, $0\leq s\leq 1, 0\leq t\leq 1$.
+\item 回転放物面$\psi(t, \theta)=(t\cos \theta,t\sin \theta, t^{2})$, $0\leq \theta \leq 2\pi, 0\leq t\leq 1$.
+\item $xy$平面上の楕円$x^{2}+\frac{y^{2}}{4}=1$の内部の面積.
+\end{enumerate}
+\item \cite[章末問題4.6]{koba} 次の$S$と$F$の組に対して面積分$\int_{S}f dS$を計算せよ．
+\begin{enumerate}
+\item $S$は点$(0,0,3), (2,0,3),(2,1,3), (0,1,3)$を頂点とする長方形. $f=xyz$.
+\item $S=\psi(s,t)=(s,t,st)$, $0\leq s\leq 1, 0\leq t\leq 1$. $f=xy$.
+\item  $S=\psi(t,\theta)=(1+t\cos \theta ,1+t\sin \theta, t)$, $0\leq t\leq 1, 0\leq \theta \leq \pi$. $f=x+z^{2}$.
+\end{enumerate}
+\item  \cite[章末問題4.7]{koba} パラメータ$s,t$で表された曲面$(s\cos t, s\sin t, s)$の$0\leq s \leq 1$, $0\leq t\leq 2\pi$の部分を$S$とする．
+\begin{enumerate}
+\item $S$の概形を描け．
+\item $S$の面積を求めよ．
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\begin{center} {\Large 演習問題８　解答} \end{center}
+\begin{enumerate}
+  \item
+    \begin{enumerate}
+      \item
+        \[ \int_0^2 \d x \int_0^1 \d y = 2 \]
+      \item
+        求めるべき領域を$D$とおくと、
+        \[ \int_D r^2 \sin \theta \d \theta \d \phi = 9 \int_0^{\frac{\pi}{2}} \sin \theta \d \theta \int_0^{2\pi} \d \phi = 9 \cdot 1 \cdot 2 \pi = 18 \pi \]
+      \item
+        求めるべき領域を$D$とおくと、
+        \[ \int_D r \d \theta \d z = r \int_{-1}^2 \d z \int_0^{2\pi} \d \theta = 3 \cdot 3 \cdot 2 \pi = 18 \pi \]
+      \item
+        $|(1,0,2) \times (0,1,3)| = |(-2,-3,1)| = \sqrt{17}$より、
+        \[ \sqrt{17} \int_0^1 \int_0^1 \d s \d t = \sqrt{17} \]
+      \item
+      \item
+    \end{enumerate}
+  \item
+  \item
+\end{enumerate}
+
+
+\end{document}
