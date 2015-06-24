@@ -15,10 +15,10 @@ def degree(p,n,m):
 def pair(p,n,m):
   return order(p,n,m),degree(p,n,m)
 
-def search(max_p=1000,max_k=100,max_n=10,max_m=10):
+def search(max_p=1000,max_k=100,max_n=5,max_m=2):
   qs = []
-  for p in pyprimes.primes_below(max_p):
-    for k in range(1,max_k):
+  for p in pyprimes.primes_below(max_p+1):
+    for k in range(1,max_k+1):
       qs.append(p**k)
   qs.sort()
   print("constructed qs", len(qs))
@@ -26,8 +26,8 @@ def search(max_p=1000,max_k=100,max_n=10,max_m=10):
   i = 0
   for q in qs:
     print(i)
-    for m in range(2,max_m):
-      for n in range(1,max_n):
+    for m in range(2,max_m+1):
+      for n in range(1,max_n+1):
         print(n,m)
         tmp = pair(q,n,m)
         if pp.is_ddp_new(*tmp):
