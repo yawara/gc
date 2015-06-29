@@ -4,7 +4,7 @@
 #
 #	Create a random graph
 #	by Ikki Fujiwara, National Institute of Informatics
-#	2015-05-12
+#	2015-06-23
 #
 #=======================================================================
 # "create-random.py" is licensed under a Creative Commons Attribution 4.0 International License.
@@ -27,8 +27,11 @@ def main(args):
 	
 	low_diam, low_aspl = lower_bound_of_diam_aspl(nnodes, degree)
 	g = nx.random_regular_graph(degree, nnodes, 0)
-	hops = nx.shortest_path_length(g, weight=None)
-	diam, aspl = max_avg_for_matrix(hops)
+	if nx.is_connected(g):
+		hops = nx.shortest_path_length(g, weight=None)
+		diam, aspl = max_avg_for_matrix(hops)
+	else:
+		diam, aspl = float("inf"), float("inf")
 	print("{}\t{}\t{}\t{}\t{}\t{}\t{}%".format(nnodes, degree, diam, aspl, diam - low_diam, aspl - low_aspl, 100 * (aspl - low_aspl) / low_aspl))
 	
 	basename = "n{}d{}.random".format(nnodes, degree)

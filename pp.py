@@ -50,6 +50,9 @@ def degree(n):
     rtv *=  1 + 1/p 
   return round(rtv)
 
+def pair(n):
+  return order(n),degree(n)
+
 def is_ddp_new(o,d):
   for i in range(1,100):
     facts = pyprimes.factors(d - i)

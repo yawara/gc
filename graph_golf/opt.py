@@ -1,5 +1,6 @@
 from random import shuffle
 import networkx as nx
+import numpy as np
 
 from create_random import *
 
@@ -23,14 +24,26 @@ def diam_aspl(G):
   
   return diam, aspl 
 
+def cnt_triangles(G):
+  M = nx.to_numpy_matrix(G)
+  return np.trace(M**3)/6
+
+def cnt_rectangles(G):
+  d = max(G.degree().values())
+  n = len(G)
+  M = nx.to_numpy_matrix(G)
+  return (np.trace(M**4)+n*d**2)/8
+    
 def opt(G):
   H = G.copy()
-  diam, aspl = diam_aspl(G)
+  
+  diam, aspl = diam_aspl(H)
   
   print("START")
   
   while True:
     print(diam, aspl)
+    print(cnt_triangles(H),cnt_rectangles(H))
     es = H.edges()
     shuffle(es)
     iter_es = iter(es)
