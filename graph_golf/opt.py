@@ -1,6 +1,7 @@
 from random import shuffle
 import networkx as nx
 import numpy as np
+from numpy.linalg import matrix_power
 
 from create_random import *
 
@@ -26,14 +27,15 @@ def diam_aspl(G):
 
 def cnt_triangles(G):
   M = nx.to_numpy_matrix(G)
-  return np.trace(M**3)/6
+  return np.trace(matrix_power(M,3)/6)
 
 def cnt_rectangles(G):
   d = max(G.degree().values())
   n = len(G)
   M = nx.to_numpy_matrix(G)
-  return (np.trace(M**4)+n*d**2)/8
-    
+  return np.trace(((matrix_power(M,2) - d * np.identity(n)).dot(M) - (d-1) * M ).dot(M))
+  
+  
 def opt(G):
   H = G.copy()
   
