@@ -109,7 +109,7 @@ $\bm V=\bm e_{\theta}$
 \item $\bm V=(-y,x)$
 \item $\bm V=(y,x)$
 \end{enumerate}
-\item \cite[問題6.24]{koba}ベクトル場$\bm V$が極座標表示で$\bm V(r, \theta)=P(r,\theta) \bm e_{r}+ Q (r, \theta) \bm e_{\theta}$と表されているとき，
+\item \cite[問題6.24, 6.28]{koba}ベクトル場$\bm V$が極座標表示で$\bm V(r, \theta)=P(r,\theta) \bm e_{r}+ Q (r, \theta) \bm e_{\theta}$と表されているとき，
 \begin{enumerate}
 \item $\mathrm {rot} \bm V (r,\theta)$を計算せよ．
 \item $\mathrm {div} \bm V (r,\theta)$を計算せよ. 
@@ -123,47 +123,83 @@ $\bm V=\bm e_{\theta}$
     \item
       \begin{enumerate}
         \item
-          渦巻き量は$0$、湧き出し量は$2\pi$
+          渦巻き量は$0$，湧き出し量は$2\pi$
         \item
-          渦巻き量は$2\pi$、湧き出し量は$0$
-        \item
-          $\bm V = \bm e_r$と同じ。
+          渦巻き量は$2\pi$，湧き出し量は$0$
+
       \end{enumerate}
     \item
-      （あとで書く。）
+    \begin{align}
+\int_{C_{2}}\bm V \cdot \bm t ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+\frac{h}{2}, y+s), Q(x+\frac{h}{2}, y+s)) \cdot (0,1) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}Q(x+\frac{h}{2}, y+s)ds
+\end{align}
+    \begin{align}
+\int_{C_{3}}\bm V \cdot \bm t ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+s, y+\frac{h}{2}), Q(x+s, y+\frac{h}{2})) \cdot (-1,0) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}-P(x+s, y+\frac{h}{2})ds
+\end{align}
+    \begin{align}
+\int_{C_{4}}\bm V \cdot \bm t ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x-\frac{h}{2}, y+s), Q(x-\frac{h}{2}, y+s) \cdot (0,-1) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}-Q(x-\frac{h}{2}, y+s)ds
+\end{align}
     \item
-      （あとで書く。）
+    \begin{align}
+\int_{C_{2}}\bm V \cdot \bm n ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+\frac{h}{2}, y+s), Q(x+\frac{h}{2}, y+s)) \cdot (1,0) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}P(x+\frac{h}{2}, y+s)ds
+\end{align}
+    \begin{align}
+\int_{C_{3}}\bm V \cdot \bm n ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+s, y+\frac{h}{2}), Q(x+s, y+\frac{h}{2})) \cdot (0,1) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}Q(x+s, y+\frac{h}{2})ds
+\end{align}
+    \begin{align}
+\int_{C_{4}}\bm V \cdot \bm n ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x-\frac{h}{2}, y+s), Q(x-\frac{h}{2}, y+s)) \cdot (-1,0) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}-P(x-\frac{h}{2}, y+s)ds
+\end{align}
+  
     \item
       \begin{enumerate}
         \item 
-          \[ \div \bm V = 0, \rot \bm V = 0 \]
+          \[ \div \bm V = 0, \quad  \rot \bm V = 0 \]
         \item
-          \[ \div \bm V = 0, \rot \bm V = 0 \]
+          \[ \div \bm V = 0, \quad \rot \bm V = 0 \]
         
         \item
-          \[ \div \bm V = 0, \rot \bm V = -1 \]
+          \[ \div \bm V = 0, \quad \rot \bm V = -1 \]
         \item
-          \[ \div \bm V = 0, \rot \bm V = 1 \]
+          \[ \div \bm V = 0, \quad \rot \bm V = 1 \]
         \item 
-          \[ \div \bm V = 1, \rot \bm V = 0 \]
+          \[ \div \bm V = 1, \quad \rot \bm V = 0 \]
         \item
-          \[ \div \bm V = -1, \rot \bm V = 0 \]
+          \[ \div \bm V = -1, \quad \rot \bm V = 0 \]
         
         \item
-          \[ \div \bm V = 2, \rot \bm V = 0 \]
+          \[ \div \bm V = 2, \quad \rot \bm V = 0 \]
         \item
-          \[ \div \bm V = 0, \rot \bm V = 0 \]
+          \[ \div \bm V = 0, \quad \rot \bm V = 0 \]
       
         \item
-          \[ \div \bm V = 0, \rot \bm V = 2 \]
+          \[ \div \bm V = 0, \quad \rot \bm V = 2 \]
         \item
-          \[ \div \bm V = 0, \rot \bm V = 0 \]
+          \[ \div \bm V = 0, \quad \rot \bm V = 0 \]
       \end{enumerate}
     \item
       \begin{enumerate}
-        \item
-          
-        \item
+   \item \begin{align*}
+   \mathrm {rot} \bm V (r,\theta)&= \frac{\partial Q}{\partial r} +\frac{1}{r}Q-\frac{1}{r} \frac{\partial P}{\partial \theta}
+   \\
+   &= \frac{1}{r} \frac{\partial }{\partial r}(rQ)-\frac{1}{r} \frac{\partial P}{\partial \theta}
+   \end{align*}
+\item 
+\begin{align*} 
+  \mathrm {div} \bm V (r,\theta)&= \frac{\partial P}{\partial r} +\frac{1}{r}P+\frac{1}{r} \frac{\partial Q}{\partial \theta}
+   \\
+   &= \frac{1}{r} \frac{\partial }{\partial r}(rP)+\frac{1}{r} \frac{\partial Q}{\partial \theta}
+   \end{align*}
           
       \end{enumerate}
   \end{enumerate}
