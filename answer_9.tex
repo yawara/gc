@@ -118,13 +118,23 @@
     \item
       \begin{enumerate}
         \item
-          （次ページを参照）
-          \begin{figure}[p]
-            \begin{center}
-              \includegraphics{answer_9_1_a.eps}
-            \end{center}
-          \end{figure}
+          （別ファイルを参照）
+          %\begin{figure}
+          %  \begin{center}
+          %    \includegraphics[height=6cm]{answer_9_1_a.eps}
+          %  \end{center}
+          %\end{figure}
         \item
+          まず法線ベクトル${\bm n}$を求める。曲面の式を${\bm r}(\theta,\varphi)$とおくと、
+          \begin{eqnarray*}
+          {\bm n} & = & \frac{1}{\sin\theta}\frac{\partial {\bm r}}{\partial \theta} \times \frac{\partial \bm r}{\partial \varphi} \\ 
+          & = & (3\cos\theta\cos\varphi,2\cos\theta\sin\varphi,-\sin\theta) \times (-3\sin\varphi,2\cos\varphi,0) \\
+          & = & (-2\sin\theta\cos\varphi,3\sin\theta\sin\varphi,6\cos\theta)
+          \end{eqnarray*}
+          よって$\theta=\frac{\pi}{3},\varphi=\frac{\pi}{4}$における法線ベクトルは、
+          \[ \bm n = (-\frac{\sqrt{3}}{\sqrt{2}},\frac{3\sqrt{3}}{2\sqrt{2}},3) \]
+          $|\bm n| = \sqrt{\frac{111}{8}}$であるから求めるべき単位法線ベクトルは、
+          \[ \frac{\bm n}{|\bm n|} = \frac{1}{\sqrt{111}} (-2\sqrt{3},3\sqrt{3},6\sqrt{2})\]
       \end{enumerate}
     \item
       $\frac{\partial \bm r}{\partial s} = (1,0,e^{s-t})$かつ$\frac{\partial \bm r}{\partial t} = (0,1,-e^{s-t})$であるから、$(s,t)$における法線ベクトルは$(-e^{s-t},e^{s-t},1)$となる。よって$(1,0)$おける法線ベクトルは$(-e,e,1)$である。また${\bm r}(1,0) = (1,0,e)$から、求めるべき接平面の式は、
