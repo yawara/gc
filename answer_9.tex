@@ -118,19 +118,38 @@
     \item
       \begin{enumerate}
         \item
-          \begin{figure}
-            \includegraphics[clip,width=7.0cm]{answer9_1_a.bb}
+          （次ページを参照）
+          \begin{figure}[p]
+            \begin{center}
+              \includegraphics{answer_9_1_a.eps}
+            \end{center}
           \end{figure}
         \item
       \end{enumerate}
     \item
+      $\frac{\partial \bm r}{\partial s} = (1,0,e^{s-t})$かつ$\frac{\partial \bm r}{\partial t} = (0,1,-e^{s-t})$であるから、$(s,t)$における法線ベクトルは$(-e^{s-t},e^{s-t},1)$となる。よって$(1,0)$おける法線ベクトルは$(-e,e,1)$である。また${\bm r}(1,0) = (1,0,e)$から、求めるべき接平面の式は、
+      \[ -e(x-1)+ey+(z-e)=-ex+ey+z=0 \]
     \item
       \begin{enumerate}
         \item
         \item
+          \[\nabla \times {\bm V} = (-\cos x, \cos z - \sin z, -z\sin x)\]
+          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 2}( -\cos x+\cos z -\sin z)$よって原点におけるそれは$0$となる。
         \item
+          \[\nabla \times {\bm V} = (e^{-z},e^{-x},e^{-y})\]
+          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 3}(e^{-z}+e^{-x}+e^{-y})$よって原点におけるそれは$\sqrt{3}$となる。
       \end{enumerate}
     \item
+      $C$を$xy$平面に含まれる原点を中心とした半径$1$の円とする。また$C$の回転方向は反時計周りとする。
+      \begin{eqnarray*}
+        \int_\Sigma \rot {\bm V} \cdot \d {\bm S} & = & \int_C {\bm V} \cdot \d {\bm r} \\
+        & = & \int_C y \d x = \int_0^{2\pi} \sin^2 \theta \d \theta = \pi
+      \end{eqnarray*}
     \item
+    　$C$を$z=1$平面に含まれる$(0,0,1)$を中心とした半径$1$の円とする。また$C$の回転方向は反時計周りとする。
+      \begin{eqnarray*}
+        \int_\Sigma \rot {\bm V} \cdot \d {\bm S} & = & - \int_C {\bm V} \cdot \d {\bm r} = - \int_C (-y+1) \d x + x \d y \\
+        & = & - \int_C -y \d x + x \d y = - 2 \pi
+      \end{eqnarray*}
   \end{enumerate}
 \end{document}
