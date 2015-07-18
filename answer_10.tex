@@ -179,6 +179,12 @@ $V=\frac{1}{3}\int_{\partial D} \psi \cdot d\bm S$となることを示せ．
           \end{eqnarray*}
       \end{enumerate}
     \item
+      ここで$\psi=(x,y,z)$である。ガウスの定理より、
+      \[ \frac{1}{3} \int_{\partial D} \psi \cdot \d \bm{S} = \frac{1}{3} \int_{\partial D} (\div \psi) \d V = \frac{1}{3} \int_D 3 \d V = \int_D \d V \]
     \item
+      ここで$\psi=(x,y,z)$である。また原点を除いて、$\div \frac{\psi}{r^3} = \bm 0$である。よって領域$D$が原点を含まない場合は、
+      \[ \int_{\partial D} \frac{\psi}{r^3} \cdot \d {\bm S} = 0 \]
+      領域$D$が原点を含む場合は、原点を中心とした半径$\epsilon$の球が$D$に含まれるように$\epsilon$を充分小さく取る。この球を$S_\epsilon$とする。$D = (D - S_\epsilon) \cup S_\epsilon$と分割できる。両辺の面積分をとれば求めるべき値となるが、このとき右辺第一項は原点を除いて発散がゼロになることからゼロになる。よって、
+      \[ \int_{\partial D} \frac{\psi}{r^3} \cdot \d {\bm S} = \int_{S_\epsilon} \frac{\psi}{r^3} \cdot \d {\bm S} = 4 \pi\]
   \end{enumerate}
 \end{document}
