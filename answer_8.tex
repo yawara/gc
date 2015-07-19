@@ -95,7 +95,7 @@
 \item 回転放物面$\psi(t, \theta)=(t\cos \theta,t\sin \theta, t^{2})$, $0\leq \theta \leq 2\pi, 0\leq t\leq 1$.
 \item $xy$平面上の楕円$x^{2}+\frac{y^{2}}{4}=1$の内部の面積.
 \end{enumerate}
-\item \cite[章末問題4.6]{koba} 次の$S$と$F$の組に対して面積分$\int_{S}f dS$を計算せよ．
+\item \cite[章末問題4.6]{koba} 次の$S$と$f$の組に対して面積分$\int_{S}f dS$を計算せよ．
 \begin{enumerate}
 \item $S$は点$(0,0,3), (2,0,3),(2,1,3), (0,1,3)$を頂点とする長方形. $f=xyz$.
 \item $S=\psi(s,t)=(s,t,st)$, $0\leq s\leq 1, 0\leq t\leq 1$. $f=xy$.
@@ -135,10 +135,47 @@
         \[ S = \int_0^1 ( t^2 + 5t^4 ) \d t \int_0^{2\pi} \d \theta = \left( \frac{1}{3}+1 \right) \cdot 2\pi = \frac{8}{3} \pi \]
       \item
         楕円は$x=r\cos\theta,y=2r\sin\theta$ただし$0 \leq r \leq 1, 0 \leq \theta < 2\pi$と表示できる。
-        
+        \[ 
+          \left| \begin{array}{cc}
+            \cos\theta & -r\sin\theta \\
+            2\sin\theta & 2r\cos\theta
+          \end{array} \right| = 2r
+        \]
+        よって求めるべき面積$S$は、
+        \[
+          S = \int_0^1 2r \d r \int_0^{2\pi} = 1 \cdot 2\pi = 2\pi
+        \]
     \end{enumerate}
   \item
+    \begin{enumerate}
+      \item
+        \[ \int_S f \d S = 3 \int_0^2 x \d x \int_0^1 y \d y = 3 \cdot \frac{4}{2} \cdot \frac{1}{2} = \frac{3}{2} \]
+      \item
+        \[ | (1,0,y) \times (0,1,x) | = | (-y,-x,1) | = \sqrt{1+x^2+y^2} \]
+        より、
+        \begin{eqnarray*} 
+          \int_0^1 \d x \int_0^1 \d y xy \sqrt{1+x^2+y^2} & = & \int_0^1 \d x \left[ \frac{1}{3} x (1+x^2+y^2)^\frac{3}{2} \right]_0^1 \\
+          & = & \int_0^1 \d x \frac{1}{3} x \left{ (2+x^2)^{\frac{3}{2}} - (1+x^2)^{\frac{3}{2}} \right} \\
+          & = & \frac{1}{3} \left[ \frac{1}{5} (2+x^2)^\frac{5}{2} - \frac{1}{5} (1+x^2)^\frac{5}{2} \right]_0^1 \\
+          & = & \frac{1}{3} \left( \frac{1}{5} 3^\frac{5}{2} - \frac{1}{5} 2^\frac{5}{2} - \frac{1}{5} 2^\frac{5}{2} + \frac{1}{5} \right) \\
+          & = & \frac{1}{15} \left( 3^\frac{5}{2} - 2^\frac{7}{2} + 1 \right)
+        \end{eqnarray*}
+      \item
+    \end{enumerate}
   \item
+    \begin{enumerate}
+      \item
+        （別ファイルを参照）
+          %\begin{figure}
+          %  \begin{center}
+          %    \includegraphics[height=6cm]{answer_9_1_a.eps}
+          %  \end{center}
+          %\end{figure}
+      \item
+        \[ (\cos t,\sin t,0) \times (-s\sin t,s\cos t,1) = s(\sin t,-\cos t, 1) \]
+        よって、
+        \[ \int_S \d S = \sqrt{2} \int_0^1 s \d s \int_0^{2\pi} \d t = \sqrt{2} \cdot \frac{1}{2} \cdot 2\pi = \sqrt{2} \pi\]
+    \end{enumerate}
 \end{enumerate}
   \newpage
 \begin{thebibliography}{99}
