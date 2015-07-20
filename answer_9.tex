@@ -118,50 +118,57 @@
     \item
       \begin{enumerate}
         \item
-          （別ファイルを参照）
+               \begin{picture}(10,50)
+\put(0,-150){ \includegraphics[width=9cm,clip]{answer_9_1_a.eps}}
+\end{picture}
+     
+     \vspace{150pt}
           %\begin{figure}
           %  \begin{center}
           %    \includegraphics[height=6cm]{answer_9_1_a.eps}
           %  \end{center}
           %\end{figure}
         \item
-          まず法線ベクトル${\bm n}$を求める。曲面の式を${\bm r}(\theta,\varphi)$とおくと、
+          まず法線ベクトル${\bm n}$を求める．曲面の式を${\bm r}(\theta,\varphi)$とおくと，
           \begin{eqnarray*}
           {\bm n} & = & \frac{1}{\sin\theta}\frac{\partial {\bm r}}{\partial \theta} \times \frac{\partial \bm r}{\partial \varphi} \\ 
           & = & (3\cos\theta\cos\varphi,2\cos\theta\sin\varphi,-\sin\theta) \times (-3\sin\varphi,2\cos\varphi,0) \\
           & = & (-2\sin\theta\cos\varphi,3\sin\theta\sin\varphi,6\cos\theta)
           \end{eqnarray*}
-          よって$\theta=\frac{\pi}{3},\varphi=\frac{\pi}{4}$における法線ベクトルは、
+          よって$\theta=\frac{\pi}{3},\varphi=\frac{\pi}{4}$における法線ベクトルは，
           \[ \bm n = (-\frac{\sqrt{3}}{\sqrt{2}},\frac{3\sqrt{3}}{2\sqrt{2}},3) \]
-          $|\bm n| = \sqrt{\frac{111}{8}}$であるから求めるべき単位法線ベクトルは、
-          \[ \frac{\bm n}{|\bm n|} = \frac{1}{\sqrt{111}} (-2\sqrt{3},3\sqrt{3},6\sqrt{2})\]
+          $|\bm n| = \sqrt{\frac{111}{8}}$であるから求めるべき単位法線ベクトルは，
+          \[ \frac{\bm n}{|\bm n|} = \frac{1}{\sqrt{37}} (2,3,2\sqrt{6})\]
       \end{enumerate}
     \item
-      $\frac{\partial \bm r}{\partial s} = (1,0,e^{s-t})$かつ$\frac{\partial \bm r}{\partial t} = (0,1,-e^{s-t})$であるから、$(s,t)$における法線ベクトルは$(-e^{s-t},e^{s-t},1)$となる。よって$(1,0)$おける法線ベクトルは$(-e,e,1)$である。また${\bm r}(1,0) = (1,0,e)$から、求めるべき接平面の式は、
+      $\frac{\partial \bm r}{\partial s} = (1,0,e^{s-t})$かつ$\frac{\partial \bm r}{\partial t} = (0,1,-e^{s-t})$であるから，$(s,t)$における法線ベクトルは$(-e^{s-t},e^{s-t},1)$となる．よって$(1,0)$おける法線ベクトルは$(-e,e,1)$である．また${\bm r}(1,0) = (1,0,e)$から，求めるべき接平面の式は，
       \[ -e(x-1)+ey+(z-e)=-ex+ey+z=0 \]
     \item
       \begin{enumerate}
         \item
           \[\nabla \times {\bm V} = (x^2-x,1-2xy,z-1)\]
-          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 2}( x^2-x -2xy+1)$よって原点におけるそれは$\frac{1}{\sqrt{2}}$となる。
+          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 2}( x^2-x -2xy+1)$よって原点におけるそれは$\frac{1}{\sqrt{2}}$となる．
         \item
           \[\nabla \times {\bm V} = (-\cos x, \cos z - \sin z, -z\sin x)\]
-          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 2}( -\cos x+\cos z -\sin z)$よって原点におけるそれは$0$となる。
+          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 2}( -\cos x+\cos z -\sin z)$よって原点におけるそれは$0$となる．
         \item
           \[\nabla \times {\bm V} = (e^{-z},e^{-x},e^{-y})\]
-          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 3}(e^{-z}+e^{-x}+e^{-y})$よって原点におけるそれは$\sqrt{3}$となる。
+          単位ベクトル$\bm u$の方向を軸とする回転は$\frac{1}{\sqrt 3}(e^{-z}+e^{-x}+e^{-y})$よって原点におけるそれは$\sqrt{3}$となる．
       \end{enumerate}
     \item
-      $C$を$xy$平面に含まれる原点を中心とした半径$1$の円とする。また$C$の回転方向は反時計周りとする。
+      $C$を$xy$平面に含まれる原点を中心とした半径$1$の円とする．また$C$の回転方向は反時計周りとする．
       \begin{eqnarray*}
         \int_\Sigma \rot {\bm V} \cdot \d {\bm S} & = & \int_C {\bm V} \cdot \d {\bm r} \\
-        & = & \int_C y \d x = \int_0^{2\pi} \sin^2 \theta \d \theta = \pi
+        & = & \int_C y \d x = \int_0^{2\pi} -\sin^2 \theta \d \theta =- \pi
       \end{eqnarray*}
     \item
-    　$C$を$z=1$平面に含まれる$(0,0,1)$を中心とした半径$1$の円とする。また$C$の回転方向は反時計周りとする。
+    　$C$を$z=1$平面に含まれる$(0,0,1)$を中心とした半径$1$の円とする．また$C$の回転方向は反時計周りとする．
       \begin{eqnarray*}
         \int_\Sigma \rot {\bm V} \cdot \d {\bm S} & = & - \int_C {\bm V} \cdot \d {\bm r} = - \int_C (-y+1) \d x + x \d y \\
         & = & - \int_C -y \d x + x \d y = - 2 \pi
       \end{eqnarray*}
   \end{enumerate}
+  \begin{thebibliography}{99}
+\bibitem[2]{koba} 小林亮，高橋大輔「ベクトル解析入門」（東京大学出版会）
+\end{thebibliography}
 \end{document}

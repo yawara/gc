@@ -123,18 +123,18 @@ $V=\frac{1}{3}\int_{\partial D} \psi \cdot d\bm S$となることを示せ．
     \item
       \begin{enumerate}
         \item
-          次のように極座標でパラメーター表示しよう（当然、パラメーター表示は複数考えられる）。
+          次のように極座標でパラメーター表示しよう（当然，パラメーター表示は複数考えられる）．
           \[ (x,y,z)=(1,2,3)+r(\cos\varphi\sin\theta,\sin\varphi\sin\theta,\cos\theta) \]
-          ただし各パラメーターは$D: 0 \leq \varphi \leq 2\pi, 0 \leq \theta \leq \pi, 1 \leq r \leq 2$の範囲内で動くものとする。 
+          ただし各パラメーターは$D: 0 \leq \varphi \leq 2\pi, 0 \leq \theta \leq \pi, 1 \leq r \leq 2$の範囲内で動くものとする． 
           \begin{eqnarray*}
             \int_D \d V & = & \int_D r^2 \sin\theta \d \theta \d \varphi \d r \\
             & = & \int_1^2 r^2 \d r \int_0^{2\pi} \d \varphi \int_0^{\pi} \sin \theta \d \theta \\
             & = & 4\pi \left[ \frac{r^3}{3} \right]_1^2 = 4\pi \cdot \frac{7}{3} = \frac{28}{3} \pi
           \end{eqnarray*}
         \item
-          次のように円柱座標でパラメーター表示しよう（当然、パラメーター表示は複数考えられる）。
+          次のように円柱座標でパラメーター表示しよう（当然，パラメーター表示は複数考えられる）．
           \[ (x,y,z)=(r\cos\phi,r\sin\phi,z) \]
-          ただし各パラメーターは$D: 1 \leq r \leq 2, 0 \leq \phi < 2\pi, 0 \leq z \leq 1$の範囲内で動くものとする。
+          ただし各パラメーターは$D: 1 \leq r \leq 2, 0 \leq \phi < 2\pi, 0 \leq z \leq 1$の範囲内で動くものとする．
           \begin{eqnarray*}
             \int_D \d V & = & \int_D r \d r \d \phi \d z \\
             & = & \int_1^2 r \d r \int_0^{2\pi} \d \phi \int_0^1 \d z \\
@@ -179,12 +179,16 @@ $V=\frac{1}{3}\int_{\partial D} \psi \cdot d\bm S$となることを示せ．
           \end{eqnarray*}
       \end{enumerate}
     \item
-      ここで$\psi=(x,y,z)$である。ガウスの定理より、
+      ここで$\psi=(x,y,z)$である．ガウスの定理より，
       \[ \frac{1}{3} \int_{\partial D} \psi \cdot \d \bm{S} = \frac{1}{3} \int_{\partial D} (\div \psi) \d V = \frac{1}{3} \int_D 3 \d V = \int_D \d V \]
     \item
-      ここで$\psi=(x,y,z)$である。また原点を除いて、$\div \frac{\psi}{r^3} = \bm 0$である。よって領域$D$が原点を含まない場合は、
+      ここで$\psi=(x,y,z)$である．また原点を除いて，$\div \frac{\psi}{r^3} = \bm 0$である．よって領域$D$が原点を含まない場合は，
       \[ \int_{\partial D} \frac{\psi}{r^3} \cdot \d {\bm S} = 0 \]
-      領域$D$が原点を含む場合は、原点を中心とした半径$\epsilon$の球が$D$に含まれるように$\epsilon$を充分小さく取る。この球を$S_\epsilon$とする。$D = (D - S_\epsilon) \cup S_\epsilon$と分割できる。両辺の面積分をとれば求めるべき値となるが、このとき右辺第一項は原点を除いて発散がゼロになることからゼロになる。よって、
+      領域$D$が原点を含む場合は，原点を中心とした半径$\epsilon$の球が$D$に含まれるように$\epsilon$を充分小さく取る．この球を$S_\epsilon$とする．$D = (D - S_\epsilon) \cup S_\epsilon$と分割できる．両辺の面積分をとれば求めるべき値となるが，このとき右辺第一項は原点を除いて発散がゼロになることからゼロになる．よって，
       \[ \int_{\partial D} \frac{\psi}{r^3} \cdot \d {\bm S} = \int_{S_\epsilon} \frac{\psi}{r^3} \cdot \d {\bm S} = 4 \pi\]
   \end{enumerate}
+  \begin{thebibliography}{99}
+\bibitem[2]{koba} 小林亮，高橋大輔「ベクトル解析入門」（東京大学出版会）
+
+\end{thebibliography}
 \end{document}
