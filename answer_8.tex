@@ -117,55 +117,77 @@
       \item
         \[ \int_0^2 \d x \int_0^1 \d y = 2 \]
       \item
-        求めるべき領域を$D$とおくと、
+        求めるべき領域を$D$とおくと，
         \[ \int_D r^2 \sin \theta \d \theta \d \phi = 9 \int_0^{\frac{\pi}{2}} \sin \theta \d \theta \int_0^{2\pi} \d \phi = 9 \cdot 1 \cdot 2 \pi = 18 \pi \]
       \item
-        求めるべき領域を$D$とおくと、
+        求めるべき領域を$D$とおくと，
         \[ \int_D r \d \theta \d z = r \int_{-1}^2 \d z \int_0^{2\pi} \d \theta = 3 \cdot 3 \cdot 2 \pi = 18 \pi \]
       \item
-        $|(1,0,2) \times (0,1,3)| = |(-2,-3,1)| = \sqrt{17}$より、
-        \[ \sqrt{17} \int_0^1 \int_0^1 \d s \d t = \sqrt{17} \]
+        $|(1,0,2) \times (0,1,3)| = |(-2,-3,1)| = \sqrt{14}$より，
+        \[ \sqrt{14} \int_0^1 \int_0^1 \d s \d t = \sqrt{14} \]
       \item
+      
         \begin{eqnarray*}
-        \left|\frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} \right| & = & \left| (\cos\theta,\sin\theta,2t) \times (-t\sin\theta,t\cos\theta,t^2)\right| \\
-        & = & \left| (t^2\sin\theta-2t^2\cos\theta,-2t^2\sin\theta-t^2\cos\theta,t) \right| \\
-        & = & t^2+5t^4
+        \left|\frac{\partial \psi}{\partial s} \times \frac{\partial \psi}{\partial t} \right| & = & \left|  (-t\sin\theta,t\cos\theta, 0) \times  (\cos\theta,\sin\theta,2t) \right| \\
+        & = & \left| (2t^2\cos\theta, 2t^2\sin\theta,-t) \right| \\
+        & = & t\sqrt{4t^{2}+1 }
         \end{eqnarray*}
-        よって求めるべき面積$S$は、
-        \[ S = \int_0^1 ( t^2 + 5t^4 ) \d t \int_0^{2\pi} \d \theta = \left( \frac{1}{3}+1 \right) \cdot 2\pi = \frac{8}{3} \pi \]
+        よって求めるべき面積$S$は，
+        \[ S = \int_0^1  t\sqrt{4t^{2}+1 } \d t \int_0^{2\pi} \d \theta = \frac{1}{12}(5\sqrt{5}-1)\cdot 2\pi = \frac{\pi}{6} (5\sqrt{5}-1) \]
       \item
-        楕円は$x=r\cos\theta,y=2r\sin\theta$ただし$0 \leq r \leq 1, 0 \leq \theta < 2\pi$と表示できる。
+        楕円は$x=r\cos\theta,y=2r\sin\theta$ただし$0 \leq r \leq 1, 0 \leq \theta < 2\pi$と表示できる．
         \[ 
           \left| \begin{array}{cc}
             \cos\theta & -r\sin\theta \\
             2\sin\theta & 2r\cos\theta
           \end{array} \right| = 2r
         \]
-        よって求めるべき面積$S$は、
+        よって求めるべき面積$S$は，
         \[
           S = \int_0^1 2r \d r \int_0^{2\pi} = 1 \cdot 2\pi = 2\pi
         \]
     \end{enumerate}
   \item
+
+       
     \begin{enumerate}
       \item
         \[ \int_S f \d S = 3 \int_0^2 x \d x \int_0^1 y \d y = 3 \cdot \frac{4}{2} \cdot \frac{1}{2} = 3 \]
       \item
         \[ | (1,0,y) \times (0,1,x) | = | (-y,-x,1) | = \sqrt{1+x^2+y^2} \]
-        より、
+        より，
         \begin{eqnarray*} 
           \int_0^1 \d x \int_0^1 \d y xy \sqrt{1+x^2+y^2} & = & \int_0^1 \d x \left[ \frac{1}{3} x (1+x^2+y^2)^\frac{3}{2} \right]_0^1 \\
           & = & \int_0^1 \d x \frac{1}{3} x \left\{ (2+x^2)^{\frac{3}{2}} - (1+x^2)^{\frac{3}{2}} \right\} \\
           & = & \frac{1}{3} \left[ \frac{1}{5} (2+x^2)^\frac{5}{2} - \frac{1}{5} (1+x^2)^\frac{5}{2} \right]_0^1 \\
           & = & \frac{1}{3} \left( \frac{1}{5} 3^\frac{5}{2} - \frac{1}{5} 2^\frac{5}{2} - \frac{1}{5} 2^\frac{5}{2} + \frac{1}{5} \right) \\
-          & = & \frac{1}{15} \left( 3^\frac{5}{2} - 2^\frac{7}{2} + 1 \right)
+          & = & \frac{1}{15} \left( 3^\frac{5}{2} - 2^\frac{7}{2} + 1 \right)\\
+          & = & \frac{1}{15} \left( 9 \sqrt{3}- 8\sqrt{2} + 1 \right)
         \end{eqnarray*}
-      \item
+      \item  \begin{eqnarray*}
+        \left|\frac{\partial \psi}{\partial t} \times \frac{\partial \psi}{\partial \theta} \right| & = & \left|  (\cos\theta,\sin\theta, 1) \times  (-t\sin\theta,t\cos\theta,t) \right| \\
+        & = & \sqrt{2}t
+         \end{eqnarray*}
+         より
+           \begin{eqnarray*} 
+          \int_0^1 \int _{0}^{\pi} \left( (1+t \cos \theta+ t^{2}) \sqrt{2} t \d \theta \d t \right) 
+          & = &\sqrt{2} \int_{0}^{1} t [\theta +t\sin \theta +t^{2} \theta]_{0}^{\pi} \d t \\
+          & = & \sqrt{2} \int_{0}^{1} t (\pi +\pi t^{2}) \d t \\
+          & = & \sqrt{2} \pi \left[\frac{t^{2}}{2}+ \frac{1}{4} t^{4}\right]_{0}^{1} \\
+          & = & \frac{3}{4} \sqrt{2} \pi
+                  \end{eqnarray*}
+      
     \end{enumerate}
-  \item
+  \item   
+       
     \begin{enumerate}
-      \item
-        （別ファイルを参照）
+      \item 
+      \begin{picture}(10,50)
+\put(0,-150){ \includegraphics[width=9cm,clip]{answer_8_3_a.eps}}
+\end{picture}
+     
+     \vspace{150pt}
+        
           %\begin{figure}
           %  \begin{center}
           %    \includegraphics[height=6cm]{answer_9_1_a.eps}
@@ -173,7 +195,7 @@
           %\end{figure}
       \item
         \[ (\cos t,\sin t,0) \times (-s\sin t,s\cos t,1) = s(\sin t,-\cos t, 1) \]
-        よって、
+        よって，
         \[ \int_S \d S = \sqrt{2} \int_0^1 s \d s \int_0^{2\pi} \d t = \sqrt{2} \cdot \frac{1}{2} \cdot 2\pi = \sqrt{2} \pi\]
     \end{enumerate}
 \end{enumerate}
