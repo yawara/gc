@@ -21,12 +21,18 @@ def get(R):
   
   Rp = list(R)
   Rp.remove(R.zero())
-  
+  try:
+    Rp[0].__getattribute__('set_immutable')
+    im_flag = True
+  except AttributeError:
+    im_flag = False
+    
   for v in V:
     if all(not (r*v[0],r*v[1],r*v[2]) in G for r in Rp):
-      #v[0].set_immutable()
-      #v[1].set_immutable()
-      #v[2].set_immutable()
+      if im_flag:
+        v[0].set_immutable()
+        v[1].set_immutable()
+        v[2].set_immutable()
       G.add_node((v[0],v[1],v[2]))
   
   G.remove_node(zero_vec)
