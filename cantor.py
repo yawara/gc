@@ -1,16 +1,44 @@
+from math import modf
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-X =
+
+# see https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%B3%E3%83%88%E3%83%BC%E3%83%AB%E9%96%A2%E6%95%B0
+def cantor(x, N=100):
+    if x > 1 or x < 0:
+        raise Exception
+    if x == 0:
+        return 0
+    if x == 1:
+        return 1
+
+    rtv = 0
+
+    tmp = x
+    for i in range(1, N):
+        tmp, finteger = modf(tmp * 3)
+        r = int(finteger) % 3
+        if r == 2:
+            rtv += 2**(-i)
+        elif r == 1:
+            rtv += 2**(-i)
+            break
+
+    return rtv
 
 
-def contor(x, s=0, t=1):
-    if x < s:
-        raise Exception
-    elif s <= x < s + (t - s) * 1 / 3:
-        1 / 2 + contor(x, s, t + (t - s) * 1 / 3)
-    elif s + (t - s) * (1 / 3) <= x <= s + (t - s) * (2 / 3):
-        return 1 / 2
-    elif x > t:
-        raise Exception
-    elif x < s
+def np_cantor(X):
+    Y = np.zeros(len(X))
+    for i, x in enumerate(X):
+        Y[i] = cantor(x)
+
+    return Y
+
+if __name__ == '__main__':
+    X = np.arange(0, 1, 0.001)
+    Y = np_cantor(X)
+
+    plt.plot(X, Y)
+    plt.show()
+    plt.savefig('./cantor.png')
