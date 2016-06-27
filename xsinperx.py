@@ -10,7 +10,6 @@ plt.plot(X, -X, '--k')
 
 X = np.asarray([2 / (i * np.pi) for i in range(1, 10)] + [-2 / (i * np.pi) for i in range(1, 10)])
 Y = X * np.sin(1 / X)
-plt.annotate('test', (0, 0))
 plt.plot(X, Y, 'ro')
 
 plt.show()
