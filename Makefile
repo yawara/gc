@@ -1,10 +1,12 @@
 all: video_opencv video_basler
 
+STDFLAG := -std=c++11
+
 ### video_opencv
-OPENCV_FLAGS := $(shell pkg-config --libs --cflags opencv)
+OPENCVFLAGS := $(shell pkg-config --libs --cflags opencv)
 
 video_opencv: video_opencv.cpp
-	$(CXX) video_opencv.cpp $(OPENCV_FLAGS) -o video_opencv
+	$(CXX) $(STDFLAG) video_opencv.cpp $(OPENCVFLAGS) -o video_opencv
 
 ### video_basler
 
@@ -23,7 +25,7 @@ $(NAME): $(NAME).o
 	$(LD) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
 $(NAME).o: $(NAME).cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+	$(CXX) $(STDFLAG) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	$(RM) video_opencv video_basler
