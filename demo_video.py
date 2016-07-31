@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if chainer.cuda.available and args.gpu >= 0:
         model.to_gpu(args.gpu)
 
-    cap = cv.VideoCapture()
+    cap = cv.VideoCapture(0)
     while True:
         status, orig_image = cap.read()
         if not status:
@@ -41,7 +41,7 @@ if __name__ == '__main__':
         result = draw_result(orig_image, im_scale, cls_score, bbox_pred,
                              args.nms_thresh, args.conf)
         cv.imshow('Faster RCNN', result)
-        if 0xFF & cv2.waitKey(1) == 27:
+        if 0xFF & cv.waitKey(1) == 27:
             break
 
     cv.destroyAllWindows()
