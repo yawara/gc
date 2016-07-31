@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from chainer.cuda import to_gpu
+
 import argparse
 import chainer
 import cv2 as cv
