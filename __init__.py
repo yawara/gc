@@ -5,7 +5,8 @@ import cv2
 
 class VideoBasler:
 
-    def __init__(self, feature_config="config.pfs", use_opencv=False):
+    def __init__(self, feature_config="feature.pfs", use_opencv=False):
+
         module_root = os.path.dirname(__file__)
         pipefile = 'opencv.pipe' if use_opencv else 'basler.pipe'
         target = 'opencv.tiff' if use_opencv else 'basler.tiff'
@@ -38,23 +39,3 @@ class VideoBasler:
             pipe.write('stop')
         os.remove(self.pipefile)
         os.remove(self.target)
-
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--use-opencv', action='store_true')
-    #parser.add_argument('--exposure-time', default=100000)
-    parser.add_argument('--feature-config', default='config.pfs')
-    parser.add_argument('--N', type=float, default=3.5)
-    args = parser.parse_args()
-    cap = VideoBasler(feature_config=args.feature_config, use_opencv=args.use_opencv)
-    while True:
-        status, img = cap.read()
-        if status:
-            height, width = img.shape[:2]
-            vis = cv2.resize(img, (int(width / args.N), int(height / args.N)))
-            cv2.imshow('main of VideoBasler', vis)
-            ch = 0xFF & cv2.waitKey(1)
-            if ch == 27:
-                cap.close()
-                break

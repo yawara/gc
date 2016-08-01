@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 //#include <csignal>
+
 #include <pylon/PylonIncludes.h>
 
 using namespace Pylon;
@@ -16,6 +17,11 @@ typedef CBaslerUsbInstantCamera Camera_t;
 typedef Camera_t::GrabResultPtr_t GrabResultPtr_t;
 
 //void signalHandler( int signum ){}
+
+bool fexists(const char *filename) {
+  std::ifstream ifile(filename);
+  return (bool)ifile;
+}
 
 int main(int argc, char const *argv[]) {
   //signal(SIGINT, signalHandler);
@@ -36,8 +42,12 @@ int main(int argc, char const *argv[]) {
     std::cout << "Using device " << camera.GetDeviceInfo().GetModelName() << std::endl;
     camera.Open();
 
-    std::cout << "Loading camera features from " << camera_features << std::endl;
-    CFeaturePersistence::Load( camera_features, &camera.GetNodeMap(), true );
+    if(fexists(camera_features))
+    {
+      std::cout << "Loading camera features from " << camera_features << std::endl;
+      CFeaturePersistence::Load( camera_features, &camera.GetNodeMap(), true );
+    }
+
     //camera.ExposureTime.SetValue(exposure_time);
     //camera.RegisterConfiguration( new CAcquireContinuousConfiguration, RegistrationMode_ReplaceAll, Cleanup_Delete);
     //camera.Width.SetValue(2000);
@@ -47,6 +57,7 @@ int main(int argc, char const *argv[]) {
 
     //camera.OffsetX.SetValue(0);
     //camera.OffsetY.SetValue(0);
+
     camera.MaxNumBuffer = 5;
 
     camera.StartGrabbing();
