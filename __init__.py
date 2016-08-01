@@ -5,16 +5,22 @@ import cv2
 
 class VideoBasler:
 
-    def __init__(self, pipefile='test.pipe', target='test.tiff', exposure_time=100000, use_opencv=False):
+    def __init__(self, feature_config="config.pfs", use_opencv=False):
         module_root = os.path.dirname(__file__)
+        pipefile = 'opencv.pipe' if use_opencv else 'basler.pipe'
+        target = 'opencv.tiff' if use_opencv else 'basler.tiff'
         self.pipefile = os.path.join(module_root, pipefile)
         if not os.path.exists(self.pipefile):
             os.mkfifo(self.pipefile)
         self.target = os.path.join(module_root, target)
         proc_path = './' if module_root is '' else module_root
         proc_exec = 'video_opencv' if use_opencv else 'video_basler'
-        self.proc = subprocess.Popen(
-            [os.path.join(proc_path, proc_exec), self.pipefile, self.target, str(exposure_time)])
+        if use_opencv:
+            self.proc = subprocess.Popen(
+                [os.path.join(proc_path, proc_exec), self.pipefile, self.target])
+        else:
+            self.proc = subprocess.Popen(
+                [os.path.join(proc_path, proc_exec), self.pipefile, self.target, feature_config])
 
     def read(self):
         with open(self.pipefile, 'w') as pipe:
@@ -37,10 +43,11 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--use-opencv', action='store_true')
-    parser.add_argument('--exposure-time', default=100000)
+    #parser.add_argument('--exposure-time', default=100000)
+    parser.add_argument('--feature-config', default='config.pfs')
     parser.add_argument('--N', type=float, default=3.5)
     args = parser.parse_args()
-    cap = VideoBasler(exposure_time=args.exposure_time, use_opencv=args.use_opencv)
+    cap = VideoBasler(feature_config=args.feature_config, use_opencv=args.use_opencv)
     while True:
         status, img = cap.read()
         if status:
