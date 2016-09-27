@@ -12,7 +12,7 @@ def create_train_data(n):
     return (x_arr, t_arr)
 
 
-def save_plot(func, train_data, filename):
+def save_plot(func, train_data, filename="fig.png"):
     x = np.linspace(0, 1, 256, endpoint=True)
     t = np.sin(2 * np.pi * x)
     p = list(map(func, x))

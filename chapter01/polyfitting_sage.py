@@ -1,22 +1,6 @@
 from sage.all import *
-
-from util import create_train_data
-
-# m-degree
-m = 5
-
-ws = [var('w' + str(i)) for i in range(m + 1)]
-
-x = var('x')
-
-f = 0
-
-for i in range(m + 1):
-    f += ws[i] * x**i
-print(f)
-
-for i in range(m + 1):
-    print(derivative(f, ws[i]))
+from util import *
+import argparse
 
 
 def l2_error(f, xs, ts):
@@ -26,9 +10,26 @@ def l2_error(f, xs, ts):
     rtv /= 2
     return rtv
 
-l2e = l2_error(f, *create_train_data(256))
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--degree', type=int, default=7)
+    parser.add_argument('--n', type=int, default=256)
+    args = parser.parse_args()
 
-for i in range(m + 1):
-    print(derivative(l2e, ws[i]))
+    n = args.n
+    m = args.degree
 
-solve([derivative(l2e, ws[i]) == 0 for i in range(m + 1)], *ws)
+    x = var('x')
+    ws = [var('w' + str(i)) for i in range(m + 1)]
+
+    f = 0
+    for i in range(m + 1):
+        f += ws[i] * x**i
+    print(f)
+
+    l2e = l2_error(f, *create_train_data(n))
+    ans = solve([derivative(l2e, ws[i]) == 0 for i in range(m + 1)], *ws)
+    f = f.substitute(ans)
+    print(f)
+
+    save_plot(lambda arg: f.substitute(x=arg), create_train_data(n))
