@@ -4,14 +4,12 @@ import matplotlib.pyplot as plt
 
 
 def create_train_data(n):
-    train_data = []
-    for i in range(n):
-        x = i / (n - 1)
-        y = np.sin(2 * np.pi * x) + normal(scale=0.7)
-        temp = [x, y]
-        train_data.append(temp)
+    x_arr = np.linspace(0, 1, n, endpoint=True)
+    t_arr = np.zeros(n)
+    for index, x in enumerate(x_arr):
+        t_arr[index] = np.sin(2 * np.pi * x) + normal(scale=0.7)
 
-    return train_data
+    return (x_arr, t_arr)
 
 
 def save_plot(func, train_data, filename):
@@ -21,8 +19,8 @@ def save_plot(func, train_data, filename):
     plt.axis([-0.2, 1.2, -3, 3])
     plt.plot(x, t, color='blue', label='sin(2 * pi * x)')
     plt.plot(x, p, color='red', label='prediction')
-    x = [i[0] for i in train_data]
-    t = [i[1] for i in train_data]
+    x = train_data[0]
+    t = train_data[1]
     plt.scatter(x, t)
     plt.legend(loc='upper left')
     plt.savefig(filename)

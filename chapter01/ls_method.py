@@ -2,14 +2,12 @@ import numpy as np
 
 
 def ls_method(train_data, dim):
-    t = [i[1] for i in train_data]
-    t = np.array(t)
-    data_count = len(train_data)
-    t = t.reshape(data_count, 1)
-    x = np.empty([data_count, dim + 1], dtype=float)
+    t = train_data[1]
+    t = t.reshape(len(t), 1)
+    x = np.empty([len(t), dim + 1], dtype=float)
     for col in range(dim + 1):
-        for row, data in enumerate(train_data):
-            x[row][col] = data[0] ** col
+        for row, data in enumerate(train_data[0]):
+            x[row][col] = data ** col
 
     trans_x = x.transpose()
     w_vector = np.empty([dim + 1, 1], dtype=float)
