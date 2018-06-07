@@ -1,0 +1,3 @@
+[submodule "jsnx"]
+	path = web/jsnx
+	url = https://github.com/fkling/JSNetworkX.git
