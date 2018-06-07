@@ -1,0 +1,168 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+%%% ywr extend 
+\def\d{\mathrm d}
+\def\grad{\mathrm grad}
+%%%
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年度前期}
+\maketitle
+
+\begin{center} {\Large 演習問題４ } \end{center}
+
+\begin{enumerate}
+\item \cite[問題2.42]{koba}  次の曲線$\bm r(t)$の$\bm r (t_{0})$での単位接線ベクトルを求めよ．
+\begin{enumerate}
+\item $\bm r(t)=(t,t^{2})$
+\item $\bm r(t)=(\cos t, \sin t)$
+\end{enumerate}
+\item \cite[章末問題3.5]{koba} 道$L$を曲線$\bm r (t)=(t\cos t, t \sin t)$の$0\leq t\leq 2\pi$の部分とする．
+このとき
+\begin{enumerate}
+\item $f(t)=t$に対して$\int_{L}f ds$を求めよ．
+\item $\bm V=(\cos t, 0)$に対して$\int _{L}\bm V \cdot d \bm r$を求めよ．
+\end{enumerate}
+
+\item 閉曲線$C$に対して勾配場の$C$上の線積分は常に$0$となることを示せ．
+
+\item \cite[問題6.34]{koba} ベクトル場$\bm V=(y,2x)$は保存力場でないことを示せ．（ヒント：保存力場であれば，定理\ref{kaku}より同じ終点と始点を持つどんな曲線上の線積分も同じ値になる．）
+
+
+\item \cite[問題6.5]{koba} 次の$U(x,y)$で与えられるスカラー場を等高線表示し，さらに勾配$\mathrm{grad} U$を重ねて図示せよ．
+\begin{enumerate}
+\item $U(x,y)=x$
+\item $U(x,y)=y^{2}$
+\item $U(x,y)=x^{2}+y^{2}$
+\item $U(x,y)=x^{2}-y^{2}$
+\item $U(x,y)=y-x^{2}$
+\end{enumerate}
+\item \cite[問題3.14]{koba}斜面$(t,\cos t)$を$t=0$から$t=\frac{\pi}{4}$の点まで質量$m$の物質が滑り落ちるときに得る運動エネルギーを，仕事（線積分）を用いて計算せよ．
+\end{enumerate}
+
+\newpage
+
+\begin{center} {\Large 演習問題４　解答} \end{center}
+  \begin{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          \[\frac {\bm r'(t_0)}{|\bm r'(t_0)|} = (\frac{1}{\sqrt{1+4t_0^2}}, \frac{2t_0}{\sqrt{1+4t_0^2}})\]
+        \item
+          \[\frac {\bm r'(t_0)}{|\bm r'(t_0)|} = (-\sin t_0, \cos t_0) \]
+      \end{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          $\bm r'(t) = (\cos t - t \sin t, \sin t + t \cos t),|\bm r'(t)| = \sqrt{1+t^2}$より，
+          \[ \int_L f \d s = \int_0^{2\pi} t \sqrt{1+t^2} \d t = \left[ \frac{1}{2} \cdot \frac{2}{3}  (1+t^2)^\frac{3}{2} \right]_0^{2\pi} = \frac{1}{3} \left\{ (1+4\pi^2)^\frac{3}{2} - 1 \right\} \]
+        \item
+          \begin{eqnarray*} 
+            \int_L \bm V \cdot \d \bm{r} & = & \int_0^{2\pi} \cos t ( \cos t - t \sin t ) \d t \\
+            & = & \int_0^{2\pi} ( \cos^2 t - t \cos t \sin t ) \d t  \\
+            & = & \int_0^{2\pi} \left( \frac{\cos 2t + 1}{2} - t \frac{\sin 2t}{2} \right) \d t \\
+            & = & \pi + \frac{1}{2} \left( \left[ \frac{t \cos 2t}{2} \right]_0^{2\pi} - \int_0^{2\pi} \frac{\cos 2t}{2} \d t \right)\\
+            & = &  \pi + \frac{1}{2} \cdot \pi = \frac{3}{2} \pi 
+          \end{eqnarray*}
+      \end{enumerate}
+    \item
+      スカラー場を$U(\bm r)$, 曲線$\bm C: \bm r(t)$ ただし$t_1 \leq t \leq t_2$とおく．
+      \[ \int_{\bm C} \grad U \cdot \d \bm{r}  = U(\bm r(t_2) - U(\bm r(t_1)) \]
+      より，勾配場の線積分はスカラー場の終点と始点の値の差になる．よって閉曲線であれば始点と終点が一致するため勾配場の線積分はゼロである．
+    \item
+      半径$1$の円周上で左回りに$\bm V$を積分する．
+      \begin{eqnarray*} 
+        \int_{\bm C} \bm V \cdot \d \bm r & = & \int_0^{2\pi} \d \theta ( - \sin^2 \theta + 2 \cos^2 \theta ) \\
+        & = & \int_0^{2\pi} \d \theta ( \cos 2\theta + \cos^2 \theta) \\
+        & = & \int_0^{2\pi} \d \theta \left( \cos 2\theta + \frac{1+\cos 2\theta}{2} \right) \\
+        & = & \pi
+      \end{eqnarray*}
+      $\bm V$が保存場だと仮定すると，任意の周回積分が消えるはずだがそうなってはいない．よって保存場ではない．
+    \item（別ファイル）
+
+      \item  $\int_{0}^{\frac {\pi}{4} } m \bm g \cdot \bm r' dt = \int_{0}^{\frac {\pi}{4} } m g \cdot \sin t dt = \left (1-\frac{\sqrt{2}}{2} \right) mg.$
+      
+  \end{enumerate}
+
+
+\newpage
+
+\begin{thebibliography}{99}
+\bibitem[2]{koba} 小林亮，高橋大輔「ベクトル解析入門」（東京大学出版会）
+\end{thebibliography}
+
+\end{document}
+

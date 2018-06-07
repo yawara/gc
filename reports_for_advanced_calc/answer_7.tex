@@ -1,0 +1,176 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+%%% ywr extend 
+\def\d{\mathrm d}
+\def\grad{\mathrm grad}
+\def\rot{\mathrm{\bm rot}}
+\def\div{\mathrm{div}}
+%%%
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年度前期}
+\maketitle
+
+\begin{center} {\Large 演習問題７ } \end{center}
+\begin{enumerate}
+\item \cite[練習問題5.5]{tani} 次の閉曲線$C$に対して線積分$\int_{\partial \Sigma}y^{2}dx + xdy$を求めよ．
+\begin{enumerate}
+\item 頂点が$(1,1), (-1,1), (-1,-1), (1,-1)$の正方形の周（反時計回り）．
+\item 原点中心で半径$2$の円周（反時計回り）．
+\end{enumerate}
+\item \cite[練習問題5.3]{tani} 単位円周$C$に沿う線積分$\int_{\partial \Sigma}(2x^{3}+y^{3})dx -  (x^{3}+y^{3})dy$を求めよ．
+\item  （改定）\cite[練習問題5.4]{tani} ベクトル場$\bm V=(\frac{-y}{x^{2}+y^{2}}, \frac{x}{x^{2}+y^{2}})$と単位円盤$D$に対して，グリーンの公式が成り立たないことを示せ．
+\item \cite[問題8.8, 8.2]{koba} 平面領域$\Sigma$の面積を$S(\Sigma)$とするとき，
+
+
+\begin{align}
+S(\Sigma)=\frac{1}{2}\int _{\partial \Sigma}-ydx+xdy =
+\int _{\partial \Sigma}xdy=
+-\int _{\partial \Sigma}ydx
+\end{align}
+
+が成り立つことを示せ．
+\item \cite[問題8.9]{koba} 楕円$C: \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1$で囲まれる領域の面積$S$を求めよ．
+
+\end{enumerate}
+\newpage
+
+\begin{center} {\Large 演習問題７　解答} \end{center}
+  \begin{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          $\rot (y^2,x) = 1-2y$より，
+          \[ \int_{-1}^{1} \int_{-1}^{1} (1-2y) \d x \d y =  4 - 4 \int_{-1}^{1} y \d y = 4 \]
+        \item
+          $\rot (y^2,x) = 1-2y = 1 - 2 r \sin \theta$より，
+          \begin{eqnarray*}
+            \int_0^2 \d r \int_0^{2\pi} \d \theta r ( 1 - 2r \sin \theta ) & = & \int_0^2 r \d r \int_0^{2\pi} \d \theta -2 \int_0^2 r^2 \d r \int_0^{2\pi} \sin \theta \d \theta \\
+            & = & \left[ \frac{1}{2} r^2 \right]_0^2 \cdot 2 \pi - 0 = 2\pi \cdot 2 = 4\pi
+          \end{eqnarray*}
+      \end{enumerate}
+    \item
+      $\rot ( 2x^3+y^3, -x^3-y^3) = -3x^2 - 3y^2 = -3r^2$より，
+      \[ -3 \int_0^1 r^3 \d r \int_0^{2\pi} \d \theta = -3 \cdot ( \frac{1}{4} ) \cdot 2\pi = - \frac{3}{2} \pi \]
+    \item 
+   回転を計算すると 
+   $$
+   \mathrm{rot} \bm V =\left( \frac{1}{x^{2}+y^{2}} - \frac{2x^{2}}{(x^{2}+y^{2})^{2}}\right)- \left( \frac{-1}{x^{2}+y^{2}} + \frac{2y^{2}}{(x^{2}+y^{2})^{2}}\right)=0.
+   $$
+   したがって
+   $$
+    \int_{D} \mathrm{rot} \bm V dS = 0.
+    $$
+    一方
+    $$
+    \int_{\partial D}\bm V \cdot \bm t ds = \int_{0}^{2\pi} dS =2\pi \not = 0.
+    $$
+   よってグリーンの公式は成り立たない．
+    \item
+      領域$\Sigma$が
+      
+      \underline{（条件A）２つのグラフ$y=f(x), g(x)$, $f(x)>g(x)$, と２つの直線$x=a,b$で囲まれている}
+      
+      を満たすとすると
+      \begin{align*}
+      S(\Sigma)&=\int_{a}^{b} \left( f(x)-g(x) \right) dx =-\int _{\partial \Sigma} y dx.
+      \end{align*}
+      同様に，領域$\Sigma$が
+      
+      \underline{（条件B）２つのグラフ$x=k(y), h(y)$, $k(y)>h(y)$, と２つの直線$y=c,d$で囲まれている}
+      
+      を満たすとすると
+          \begin{align*}
+      S(\Sigma)&=\int_{c}^{d} \left( k(y)-h(y) \right) dy =\int _{\partial \Sigma} x dy.
+      \end{align*}
+領域$\Sigma$が上記の条件A,Bを同時に満たすとすると，
+\begin{align}
+S(\Sigma)=\int _{\partial \Sigma}xdy=
+-\int _{\partial \Sigma}ydx=\frac{1}{2}\int _{\partial \Sigma}-ydx+xdy.
+\end{align}
+一般の領域$\Sigma$に対しては，条件A,Bを満たす領域に分割して足し上げれば主張が示される．
+    \item
+      $u = \frac{x}{a}, v = \frac{y}{b}$と変数変換すると$\d x \d y = a b \d u \d v$であるから，
+      \[ \int_{\frac{x^2}{a^2}+\frac{y^2}{b^2} \leq 1 } \d x \d y = \int_{u^2+v^2 \leq 1} ab \d u \d v = \pi ab \]
+  \end{enumerate}
+  \newpage
+\begin{thebibliography}{99}
+\bibitem{tani} 谷口雅彦「なっとくするベクトル解析」（講談社）
+\bibitem{koba} 小林亮，高橋大輔「ベクトル解析入門」（東京大学出版会）
+
+\end{thebibliography}
+
+\end{document}

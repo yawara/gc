@@ -1,0 +1,214 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+%%% ywr extend 
+\def\d{\mathrm d}
+\def\grad{\mathrm grad}
+\def\rot{\mathrm{\bm rot}}
+\def\div{\mathrm{div}}
+%%%
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年度前期}
+\maketitle
+
+\begin{center} {\Large 演習問題５ } \end{center}
+
+\begin{enumerate}
+\item 次のベクトル場$\bm V$の単位円周$C: \bm r(t)=(\cos t, \sin t)$, $0\leq t\leq 2\pi$,に沿った渦巻き量と湧き出し量を求めよ．
+\begin{enumerate}
+\item
+$\bm V=\bm e_{r}$
+\item
+$\bm V=\bm e_{\theta}$
+\end{enumerate}
+\item ５章(14)--(16)を示せ．
+\item ５章(33)--(35)を示せ．
+\item \cite[問題6.16]{koba}　次の各ベクトル場$\bm V$について，回転$\mathrm {rot} V(x,y)$と発散$\mathrm {div} V(x,y)$を求めよ．
+\begin{enumerate}
+\item $\bm V=(1,0)$
+\item $\bm V=(1,1)$
+\item $\bm V=(y,0)$
+\item $\bm V=(0,x)$
+\item $\bm V=(x,0)$
+\item $\bm V=(0,-y)$
+\item $\bm V=(x,y)$
+\item $\bm V=(x,-y)$
+\item $\bm V=(-y,x)$
+\item $\bm V=(y,x)$
+\end{enumerate}
+\item \cite[問題6.24, 6.28]{koba}ベクトル場$\bm V$が極座標表示で$\bm V(r, \theta)=P(r,\theta) \bm e_{r}+ Q (r, \theta) \bm e_{\theta}$と表されているとき，
+\begin{enumerate}
+\item $\mathrm {rot} \bm V (r,\theta)$を計算せよ．
+\item $\mathrm {div} \bm V (r,\theta)$を計算せよ. 
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\begin{center} {\Large 演習問題５　解答} \end{center}
+  \begin{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          渦巻き量は$0$，湧き出し量は$2\pi$
+        \item
+          渦巻き量は$2\pi$，湧き出し量は$0$
+
+      \end{enumerate}
+    \item
+    \begin{align}
+\int_{C_{2}}\bm V \cdot \bm t ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+\frac{h}{2}, y+s), Q(x+\frac{h}{2}, y+s)) \cdot (0,1) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}Q(x+\frac{h}{2}, y+s)ds
+\end{align}
+    \begin{align}
+\int_{C_{3}}\bm V \cdot \bm t ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+s, y+\frac{h}{2}), Q(x+s, y+\frac{h}{2})) \cdot (-1,0) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}-P(x+s, y+\frac{h}{2})ds
+\end{align}
+    \begin{align}
+\int_{C_{4}}\bm V \cdot \bm t ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x-\frac{h}{2}, y+s), Q(x-\frac{h}{2}, y+s) \cdot (0,-1) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}-Q(x-\frac{h}{2}, y+s)ds
+\end{align}
+    \item
+    \begin{align}
+\int_{C_{2}}\bm V \cdot \bm n ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+\frac{h}{2}, y+s), Q(x+\frac{h}{2}, y+s)) \cdot (1,0) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}P(x+\frac{h}{2}, y+s)ds
+\end{align}
+    \begin{align}
+\int_{C_{3}}\bm V \cdot \bm n ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x+s, y+\frac{h}{2}), Q(x+s, y+\frac{h}{2})) \cdot (0,1) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}Q(x+s, y+\frac{h}{2})ds
+\end{align}
+    \begin{align}
+\int_{C_{4}}\bm V \cdot \bm n ds&=\int_{-\frac{h}{2}}^{\frac{h}{2}}(P(x-\frac{h}{2}, y+s), Q(x-\frac{h}{2}, y+s)) \cdot (-1,0) ds
+\\
+&=\int_{-\frac{h}{2}}^{\frac{h}{2}}-P(x-\frac{h}{2}, y+s)ds
+\end{align}
+  
+    \item
+      \begin{enumerate}
+        \item 
+          \[ \div \bm V = 0, \quad  \rot \bm V = 0 \]
+        \item
+          \[ \div \bm V = 0, \quad \rot \bm V = 0 \]
+        
+        \item
+          \[ \div \bm V = 0, \quad \rot \bm V = -1 \]
+        \item
+          \[ \div \bm V = 0, \quad \rot \bm V = 1 \]
+        \item 
+          \[ \div \bm V = 1, \quad \rot \bm V = 0 \]
+        \item
+          \[ \div \bm V = -1, \quad \rot \bm V = 0 \]
+        
+        \item
+          \[ \div \bm V = 2, \quad \rot \bm V = 0 \]
+        \item
+          \[ \div \bm V = 0, \quad \rot \bm V = 0 \]
+      
+        \item
+          \[ \div \bm V = 0, \quad \rot \bm V = 2 \]
+        \item
+          \[ \div \bm V = 0, \quad \rot \bm V = 0 \]
+      \end{enumerate}
+    \item
+      \begin{enumerate}
+   \item \begin{align*}
+   \mathrm {rot} \bm V (r,\theta)&= \frac{\partial Q}{\partial r} +\frac{1}{r}Q-\frac{1}{r} \frac{\partial P}{\partial \theta}
+   \\
+   &= \frac{1}{r} \frac{\partial }{\partial r}(rQ)-\frac{1}{r} \frac{\partial P}{\partial \theta}
+   \end{align*}
+\item 
+\begin{align*} 
+  \mathrm {div} \bm V (r,\theta)&= \frac{\partial P}{\partial r} +\frac{1}{r}P+\frac{1}{r} \frac{\partial Q}{\partial \theta}
+   \\
+   &= \frac{1}{r} \frac{\partial }{\partial r}(rP)+\frac{1}{r} \frac{\partial Q}{\partial \theta}
+   \end{align*}
+          
+      \end{enumerate}
+  \end{enumerate}
+  
+
+\newpage
+
+\begin{thebibliography}{99}
+\bibitem[2]{koba} 小林亮，高橋大輔「ベクトル解析入門」（東京大学出版会）
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+%%% ywr extend 
+\def\d{\mathrm d}
+%%%
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年度前期}
+\maketitle
+
+\begin{center} {\Large 演習問題３ } \end{center}
+
+\begin{enumerate}
+\item 次の曲線を図示し，その長さを求めよ．
+\begin{enumerate}
+\item 放物線 $\bm r(t)=(t,t^{2})$, $0\leq t\leq 2.$
+\item Cycloid  $\bm r(t)=(t-\sin t,1-\cos t)$, $0\leq t\leq 2\pi.$
+\item Cardioid $\bm r(t)=((1+\cos t)\cos t, (1+\cos t)\sin t)$, $0\leq t\leq 2\pi .$
+\end{enumerate}
+\item Cycloid  $\bm r(t)=(t-\sin t,1-\cos t)$, $0\leq t\leq 2\pi,$と$x$軸で囲まれた領域の面積を求めよ．
+
+
+\item 次の線積分を求めよ
+\begin{enumerate}
+\item 曲線$\bm r=(t,2t+1)$, $0\leq t\leq 2$, に沿った関数$f(t)=t^{2}+1$の線積分．
+\item 曲線$\bm r=(t,t^{2})$, $0\leq t\leq 1$, に沿った関数$f(t)=t$の線積分．
+\end{enumerate}
+
+\end{enumerate}
+
+\newpage
+
+\begin{center} {\Large 演習問題３　解答} \end{center}
+\begin{enumerate}
+  \item
+    \begin{enumerate}
+      \item
+        $ \bm r' (t) = ( 1, 2t ) $ より、
+        \[ \int_0^1 \frac{\d s}{\d t} \d t = \int_0^2 \sqrt{1+4t^2} \d t  = \frac{1}{2} \int_0^4 \sqrt{1+u^2} \d u \]
+        最後の式は$2t = u$と変数変換しているだけである。
+        \[ \int \sqrt{1+x^2} \d x = \frac{1}{2} (x \sqrt{1+x^2} + \log |x+\sqrt{1+x^2}|)\]
+        上記の積分公式を使うと、
+        \[ \int_0^2 \frac{\d s}{\d t} \d t = \frac{1}{4} \left[ (u \sqrt{1+u^2} + \log{|u+\sqrt{1+u^2}|} \right]^4_0 = \sqrt{17} + \frac{1}{4} \log{(4+\sqrt{17})} \]
+      
+      \item
+        $ \bm r' (t) = ( 1-\cos t, \sin t ), |\bm r'(t)| = \sqrt{2-2\cos t} = 2 \left| \cos \frac{t}{2} \right|$ より、
+        \[ \int_0^{2\pi} \frac{\d s}{\d t} \d t = \int_0^{2\pi} 2 | \cos \frac{t}{2} | \d t = 4 \int_0^\pi | \cos u | \d u = 8 \int_0^{\frac{\pi}{2}} \cos u \d u = 8 \left[ \sin u \right]_0^{\frac{\pi}{2}} = 8 \]
+        途中、$t = 2u$と変数変換した。
+      \item
+        $ \bm r'(t)=(-\sin t - \sin 2t, \cos t + \cos 2t), |\bm r'(t)|=2| \cos t |$より、
+        \[ \int_0^{2\pi} \frac{\d s}{\d t} \d t = 2 \int_0^{2\pi} |\cos t| \d t = 8 \int_0^{\frac{\pi}{2}} \cos t \d t = 8\]
+    \end{enumerate}
+    
+  \item
+    求めるべき面積を$S$とおくと、
+    \[ S = \int_0^{2\pi} y \frac{\d x}{\d t} \d t = \int_0^{2\pi} (1-\cos t)^2 \d t = \int_0^{2\pi} ( 1 - 2 \cos t + \cos^2 t ) \d t = \int_0^{2\pi} ( 1 - 2 \cos t + \frac{1+\cos 2t}{2}) \d t \] 
+    最後の式でコサインの積分が消えることに注目すると、
+    \[ S = \int_0^{2\pi} ( 1 + \frac{1}{2} ) \d t = \frac{3}{2} \int_0^{2\pi} \d t = \frac{3}{2} \times 2 \pi = 3 \pi \]
+  \item
+    \begin{enumerate}
+      \item
+        $\bm r'(t) = (1,2), |\bm r'(t)| = \sqrt{5}$より、
+        \[ \int_0^2 f(t) \frac{\d s}{\d t} \d t = \sqrt{5} \int_0^2 (1+t^2) \d t = \sqrt{5} (2 + \frac{8}{3}) = \frac{14}{3} \sqrt{5}\]
+      \item
+        $\bm r'(t) = (1,2t), |\bm r'(t)| = \sqrt{1+4t^2}$より、
+        \[ \int_0^1 f(t) \frac{\d s}{\d t} \d t = \left[ \frac{1}{8} \cdot \frac{2}{3} (1+4t^2)^\frac{3}{2} \right]_0^1 = \frac{1}{12} ( 5\sqrt{5} - 1 ) \]
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

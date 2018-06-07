@@ -1,0 +1,194 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+%%% ywr extend 
+\def\d{\mathrm d}
+\def\grad{\mathrm grad}
+\def\rot{\mathrm{\bm rot}}
+\def\div{\mathrm{div}}
+%%%
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年度前期}
+\maketitle
+
+\begin{center} {\Large 演習問題１０ } \end{center}
+\begin{enumerate}
+\item \cite[問題5.2]{koba}
+以下の立体をパラメータで表示し，その体積を求めよ．
+\begin{enumerate}
+\item 点$(1,2,3)$を中心とする半径$1$および半径$2$の球面にはさまれた部分．
+\item $z$軸を中心軸とする半径$1$および$2$の円筒にはさまれた領域の$0\leq z\leq 1$の部分．
+\end{enumerate} 
+\item \cite[問題5.5]{koba}
+原点を中心とする半径$1$の球の内部領域を$\Omega$とする．このとき次の体積分を求めよ．
+\begin{enumerate}
+\item $\int_{\Omega} (x^{2}+y^{2}+z^{2}) dV$
+\item $\int_{\Omega} z^{2} dV$
+\end{enumerate} 
+\item \cite[問題5.6]{koba}
+$z$軸を中心軸とする半径$2$の円筒内部の$0\leq z\leq 1$の領域を$\Omega$とする．このとき次の体積分を求めよ．
+\begin{enumerate}
+\item $\int_{\Omega} 1+xdV$
+\item $\int_{\Omega} zdV$
+\item $\int_{\Omega} (x^{2}+y^{2})dV$
+\end{enumerate} 
+\item  \cite[問題8.10]{koba}
+領域$D$のパラメータを$\psi$としたとき，$D$の体積は
+$V=\frac{1}{3}\int_{\partial D} \psi \cdot d\bm S$となることを示せ．
+\item \cite[章末問題8.4]{koba}パラメータ$\psi$で表される$3$次元空間の領域$D$に対して次の等式が成り立つことを示せ．
+\begin{align*}
+\int_{\partial D} \frac{1}{r^{3}} \psi \cdot d \bm S =\begin{cases} 0, \quad (0,0,0) \not \in D,
+\\
+4\pi, \quad  (0,0,0) \in D.
+\end{cases}
+\end{align*}
+\end{enumerate}
+\newpage
+
+\begin{center} {\Large 演習問題１０　解答} \end{center}
+  \begin{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          次のように極座標でパラメーター表示しよう（当然，パラメーター表示は複数考えられる）．
+          \[ (x,y,z)=(1,2,3)+r(\cos\varphi\sin\theta,\sin\varphi\sin\theta,\cos\theta) \]
+          ただし各パラメーターは$D: 0 \leq \varphi \leq 2\pi, 0 \leq \theta \leq \pi, 1 \leq r \leq 2$の範囲内で動くものとする． 
+          \begin{eqnarray*}
+            \int_D \d V & = & \int_D r^2 \sin\theta \d \theta \d \varphi \d r \\
+            & = & \int_1^2 r^2 \d r \int_0^{2\pi} \d \varphi \int_0^{\pi} \sin \theta \d \theta \\
+            & = & 4\pi \left[ \frac{r^3}{3} \right]_1^2 = 4\pi \cdot \frac{7}{3} = \frac{28}{3} \pi
+          \end{eqnarray*}
+        \item
+          次のように円柱座標でパラメーター表示しよう（当然，パラメーター表示は複数考えられる）．
+          \[ (x,y,z)=(r\cos\phi,r\sin\phi,z) \]
+          ただし各パラメーターは$D: 1 \leq r \leq 2, 0 \leq \phi < 2\pi, 0 \leq z \leq 1$の範囲内で動くものとする．
+          \begin{eqnarray*}
+            \int_D \d V & = & \int_D r \d r \d \phi \d z \\
+            & = & \int_1^2 r \d r \int_0^{2\pi} \d \phi \int_0^1 \d z \\
+            & = & 2\pi \left[ \frac{r^2}{2} \right]_1^2 = 2\pi \cdot \frac{3}{2} = 3\pi
+          \end{eqnarray*}
+      \end{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          \begin{eqnarray*}
+            \int_\Omega (x^2+y^2+z^2) \d V & = & \int_\Omega r^4 \sin\theta \d r \d \theta \d \varphi \\
+            & = & \int_0^1 r^4 \d r \int_0^{\pi} \sin \theta \d \theta \int_0^{2\pi} \d \varphi \\
+            & = & \frac{4}{5} \pi
+          \end{eqnarray*}
+        \item
+          \begin{eqnarray*}
+            \int_\Omega z^2 \d V & = & \int_\Omega r^4 \cos^2 \theta \sin \theta \d r \d \theta \d \varphi \\
+            & = & \int_0^1 r^4 \d r \int_0^{\pi} \cos^2 \theta \sin \theta \d \theta \int_0^{2\pi} \d \varphi \\
+            & = & \frac{2}{5} \pi \int_{-1}^{1} u^2 \d u \\
+            & = & \frac{2}{5} \pi \cdot \frac{2}{3} = \frac{4}{15} \pi
+          \end{eqnarray*}
+      \end{enumerate}
+    \item
+      \begin{enumerate}
+        \item
+          \begin{eqnarray*}
+            \int_\Omega (1+x) \d V & = & \int_\Omega (1+r \cos \phi) r \d r \d \phi \d z \\
+            & = & \int_0^2 r \d r \int_0^{2\pi} \d \phi \int_0^1 \d z \\
+            & = & \frac{4}{2} \cdot 2\pi \cdot 1 = 4 \pi
+          \end{eqnarray*}
+        \item
+          \begin{eqnarray*}
+            \int_\Omega z \d V & = & \int_\Omega z r \d r \d \phi \d z \\
+            & = & \int_0^2 \int_0^{2\pi} \d \phi \int_0^1 z \d z \\
+            & = & \frac{4}{2} \cdot 2\pi \cdot \frac{1}{2} = 2\pi
+          \end{eqnarray*}
+        \item
+          \begin{eqnarray*}
+            \int_\Omega (x^2+y^2) \d V & = & \int_\Omega r^3 \d r \d \phi \d z \\
+            & = & \int_0^2 r^3 \d r \int_0^{2\pi} \d \phi \int_0^1 \d z \\
+            & = & \frac{16}{4} \cdot 2\pi \cdot 1 = 8 \pi
+          \end{eqnarray*}
+      \end{enumerate}
+    \item
+      ここで$\psi=(x,y,z)$である．ガウスの定理より，
+      \[ \frac{1}{3} \int_{\partial D} \psi \cdot \d \bm{S} = \frac{1}{3} \int_{\partial D} (\div \psi) \d V = \frac{1}{3} \int_D 3 \d V = \int_D \d V \]
+    \item
+      ここで$\psi=(x,y,z)$である．また原点を除いて，$\div \frac{\psi}{r^3} = \bm 0$である．よって領域$D$が原点を含まない場合は，
+      \[ \int_{\partial D} \frac{\psi}{r^3} \cdot \d {\bm S} = 0 \]
+      領域$D$が原点を含む場合は，原点を中心とした半径$\epsilon$の球が$D$に含まれるように$\epsilon$を充分小さく取る．この球を$S_\epsilon$とする．$D = (D - S_\epsilon) \cup S_\epsilon$と分割できる．両辺の面積分をとれば求めるべき値となるが，このとき右辺第一項は原点を除いて発散がゼロになることからゼロになる．よって，
+      \[ \int_{\partial D} \frac{\psi}{r^3} \cdot \d {\bm S} = \int_{S_\epsilon} \frac{\psi}{r^3} \cdot \d {\bm S} = 4 \pi\]
+  \end{enumerate}
+  \begin{thebibliography}{99}
+\bibitem[2]{koba} 小林亮，高橋大輔「ベクトル解析入門」（東京大学出版会）
+
+\end{thebibliography}
+\end{document}

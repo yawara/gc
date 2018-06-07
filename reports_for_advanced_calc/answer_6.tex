@@ -1,0 +1,164 @@
+\documentclass{jarticle}
+
+\setlength{\voffset}{-65pt}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\textwidth}{490pt}
+\setlength{\textheight}{700pt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,pifont,colortbl,amscd, wrapfig, ascmac}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{bm}
+\newtheorem{theorem}{定理}
+\newtheorem{definition}{定義}
+\newtheorem{example}{例}
+
+\def\ev{\mathrm{ev}}
+\def\c{\mathop{\mathrm{cts}}\nolimits}
+\def\odd{\mathop{\mathrm{odd}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\mod{\mathop{\mathrm{mod}}\nolimits}
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\newcommand{\sad}{\overline{\ad}}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\Span{\mathop{\mathrm{Span}}\nolimits}
+\def\ideal{\mathop{\mathrm{ideal}}\nolimits}
+\def\co{\colon\thinspace}
+%for U_h
+\newcommand{\uqenh}[1]{ (\bar U_q^{\ev})\,\hat  {}^{\;\hat  \otimes #1}}
+\newcommand{\uqen}[1]{ (\bar U_q^{\ev})\;\tilde {}^{\;\tilde \otimes #1}}
+\newcommand{\uqe}{\bar U_q^{\ev}}
+\newcommand{\uqz}{\bar U_q^0}
+\newcommand{\uqze}{\bar U_q^{\ev 0}}
+\newcommand{\uq}{\bar U_q}
+\newcommand{\muq}{\mathcal{ U}_q}
+\newcommand{\muqe}{\mathcal{ U}_q^{\ev}}
+\newcommand{\uqzq}{U_{\mathbb{Z},q}}
+\newcommand{\uqzqe}{(U_{\mathbb{Z},q})^{\ev}}
+\newcommand{\uqn}[1]{\bar U_q^{\otimes {#1}}}
+\newcommand{\uhn}[1]{\bar U_h^{\hat \otimes {#1}}}
+\newcommand{\f}[1]{\tilde F^{({#1})}}
+\newcommand{\e}[1]{\tilde E^{({#1})}}
+\newcommand{\Z}{\mathbb{Z}[q,q^{-1}]}
+\def\ZA{\mathbb{P}^{\mathrm{fin}}\big( \Hom_{\mathcal{A}}(0,g)\big)}
+
+\def\deg{\mathop{\mathrm{deg}}\nolimits}
+\def\inv{\mathop{\mathrm{Inv}}\nolimits}
+\def\cl{\mathop{\mathrm{cl}}\nolimits}
+\def\ad{\mathop{\mathrm{ad}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\End{\mathop{\mathrm{End}}\nolimits}
+\def\id{\mathop{\mathrm{id}}\nolimits}
+\def\ev{\mathop{\mathrm{ev}}\nolimits}
+\def\coev{\mathop{\mathrm{coev}}\nolimits}
+\def\coad{\mathop{\mathrm{coad}}\nolimits}
+\def\Ob{\mathop{\mathrm{Ob}}\nolimits}
+\def\Hom{\mathop{\mathrm{Hom}}\nolimits}
+\def\Sets{\mathop{\mathrm{Sets}}\nolimits}
+\def\im{\mathop{\mathrm{Im}}\nolimits}
+\def\co{\colon\thinspace}
+
+%%% ywr extend 
+\def\d{\mathrm d}
+\def\grad{\mathrm grad}
+\def\rot{\mathrm{\bm rot}}
+\def\div{\mathrm{div}}
+\def\e{\mathrm{e}}
+%%%
+
+\begin{document}
+
+\title{微分積分続論（ベクトル解析）} 
+\author{鈴木　咲衣}
+\date{平成27年度前期}
+\maketitle
+
+\begin{center} {\Large 演習問題６ } \end{center}
+  \begin{enumerate}
+  \item  \cite[問題4.1]{koba}次の面積分を求めよ． \label{41}
+  \begin{enumerate}
+  \item $\int_{0}^{1}\int_{0}^{1} (x+y)^{2}dxdy $
+  \item $ \int_{0}^{2}\int_{0}^{1} e^{x-y}dxdy $
+  \item $\int_{0}^{\frac{\pi}{2}} \int_{0}^{\frac{\pi}{2}} \cos(x+2y) dxdy $
+  \end{enumerate}
+  \item  \cite[問題4.2]{koba} 問\ref{41}の重積分の順序を入れ替えて計算せよ．
+  \item  \cite[問題4.5]{koba} 領域$D$を原点を中心とした半径$1$の円とする．次の面積分を極座標を用いて求めよ．
+  \begin{enumerate}
+  \item $\int_{D} x^{2}dS$
+  \item $\int_{D} (x^{2}+y^{2)}dS$
+  \item$ \int_{D} x^{2}ydS$
+  \item$ \int_{D} e^{x^{2}+y^{2}}dS$
+  \end{enumerate}
+  \end{enumerate}
+\newpage
+
+\begin{center} {\Large 演習問題６　解答} \end{center}
+  \begin{enumerate}
+    \item
+    \begin{enumerate}
+      \item
+        \begin{eqnarray*} 
+          \int_0^1 \int_0^1 (x+y)^2 \d x \d y & = & \int_0^1 \frac{1}{3} \left[(x+y)^3 \right]_0^1 \d y \\
+          & = & \frac{1}{3} \int_0^1 \left\{ (1+y)^3 - y^3 \right\} \d y \\
+          & = & \frac{1}{3} \cdot \frac{1}{4} \left[ (y+1)^4 - y^4 \right]_0^1 \\
+          & = & \frac{1}{12} \cdot \{ (2^4-1)-1 \} = \frac{7}{6}
+        \end{eqnarray*}
+      \item
+        \begin{eqnarray*}
+          \int_0^2 \int_0^1 \e^{x-y} \d x \d y & = & \int_0^2 \e^{-y} \d y \int_0^1 \e^{x} \d x \\
+          & = & \left[ - \e^{-y} \right]_0^2 \left[ \e^{x} \right]_0^1 \\
+          & = & (1 - \e^{-2} )(\e -1 )
+        \end{eqnarray*}
+      \item
+        \begin{eqnarray*}
+          \int_0^{\frac{\pi}{2}} \int_0^{\frac{\pi}{2}} \cos(x+2y) \d x \d y & = & \int_0^{\frac{\pi}{2}} \left[ \sin(x+2y) \right]_0^{\frac{\pi}{2}} \d y \\
+          & = & \int_0^{\frac{\pi}{2}} \{ \sin(2y+\frac{\pi}{2}) - \sin(2y) \} \d y =  \int_0^{\frac{\pi}{2}} \{ \cos(2y) - \sin(2y) \} \d y \\
+          & = & \int_0^{\frac{\pi}{2}} \{ - \sin(2y) \} \d y = \frac{1}{2} \left[ \cos(2y) \right]_0^{\frac{\pi}{2}} = -1
+        \end{eqnarray*}
+    \end{enumerate}
+    \item （省略する）
+    \item
+      \begin{enumerate}
+        \item
+          \begin{eqnarray*}
+            \int_{D} x^2 \d S & = & \int_0^1 r^3 \d r \int_0^{2\pi} \cos^2 \theta \d \theta \\
+            & = & \frac{1}{4} \int_0^{2\pi} \frac{1+\cos{2\theta}}{2} \d \theta \\
+            & = & \frac{1}{4} \cdot \pi = \frac{\pi}{4}
+          \end{eqnarray*}
+        \item
+          \begin{eqnarray*}
+            \int_{D} (x^2+y^2) \d S & = & \int_0^1 r^3 \d r \int_0^{2\pi} \d \theta \\
+            & = & \frac{1}{4} \cdot 2\pi = \frac{\pi}{2}
+          \end{eqnarray*}
+        \item
+          \begin{eqnarray*}
+            \int_{D} x^2y \d S & = & \int_0^1 r^4 \d r \int_0^{2\pi} \cos^2 \theta \sin \theta \d \theta \\
+            & = & \frac{1}{5} \left[ -\frac{1}{3} \cos^3 \theta \right]_0^{2\pi} = 0
+          \end{eqnarray*}
+        \item
+          \begin{eqnarray*}
+            \int_{D} \e^{x^2+y^2} \d S & = & \int_0^1 r \e^{r^2} \d r \int_0^{2\pi} \d \theta \\
+            & = & 2 \pi \left[ \frac{1}{2} \e^{r^2} \right]_0^1 = \pi ( \e - 1 )
+          \end{eqnarray*}
+      \end{enumerate}
+  \end{enumerate}
+  
+\newpage
+
+\begin{thebibliography}{99}
+\bibitem[2]{koba} 小林亮，高橋大輔「ベクトル解析入門」（東京大学出版会）
+\end{thebibliography}
+
+\end{document}
